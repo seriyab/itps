@@ -20,10 +20,10 @@ class EquipmentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $equipment = $em->getRepository('MaterialsBundle:Equipment')->findAll();
+        $equipments = $em->getRepository('MaterialsBundle:Equipment')->findAll();
 
         return $this->render('equipment/index.html.twig', array(
-            'equipment' => $equipment,
+            'equipments' => $equipments,
         ));
     }
 
