@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Equipement list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Family</th>
+                <th>Subfamily</th>
+                <th>Registrationnumber</th>
+                <th>Dateofcirculation</th>
+                <th>Numberofplaces</th>
+                <th>Bodywork</th>
+                <th>Energy</th>
+                <th>Fiscalpower</th>
+                <th>Status</th>
+                <th>Greycarte</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipment in equipment %}
+            <tr>
+                <td><a href="{{ path('equipment_show', { 'id': equipment.id }) }}">{{ equipment.id }}</a></td>
+                <td>{{ equipment.name }}</td>
+                <td>{{ equipment.family }}</td>
+                <td>{{ equipment.subFamily }}</td>
+                <td>{{ equipment.registrationNumber }}</td>
+                <td>{{ equipment.dateOfCirculation }}</td>
+                <td>{{ equipment.numberOfPlaces }}</td>
+                <td>{{ equipment.bodywork }}</td>
+                <td>{{ equipment.energy }}</td>
+                <td>{{ equipment.fiscalPower }}</td>
+                <td>{{ equipment.status }}</td>
+                <td>{% if equipment.greyCarte %}Yes{% else %}No{% endif %}</td>
+                <td>{{ equipment.brand }}</td>
+                <td>{{ equipment.model }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('equipment_show', { 'id': equipment.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('equipment_edit', { 'id': equipment.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('equipment_new') }}">Create a new equipment</a>
+        </li>
+    </ul>
+{% endblock %}

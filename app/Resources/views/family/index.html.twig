@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Familles</h1>
+
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('family_new') }}" class="btn btn-primary">Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Familles <small>Equipements</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for family in families %}
+                                    <tr>
+                                        <td>{{ family.name }}</td>
+                                        <td>                                    
+                                            <div class="btn-group">
+                                                <a href="{{ path('family_show', { 'id': family.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ path('family_edit', { 'id': family.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ path('family_delete', { 'id': family.id }) }}" class="btn btn-sm btn-danger" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-trash"></i></a>
+                                            </div>     
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

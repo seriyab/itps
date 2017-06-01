@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Insuranceagencies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phonenumber</th>
+                <th>Faxnumber</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for insuranceAgency in insuranceAgencies %}
+            <tr>
+                <td><a href="{{ path('insuranceagency_show', { 'id': insuranceAgency.id }) }}">{{ insuranceAgency.id }}</a></td>
+                <td>{{ insuranceAgency.name }}</td>
+                <td>{{ insuranceAgency.address }}</td>
+                <td>{{ insuranceAgency.phoneNumber }}</td>
+                <td>{{ insuranceAgency.faxNumber }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('insuranceagency_show', { 'id': insuranceAgency.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('insuranceagency_edit', { 'id': insuranceAgency.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('insuranceagency_new') }}">Create a new insuranceAgency</a>
+        </li>
+    </ul>
+{% endblock %}

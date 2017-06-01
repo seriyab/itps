@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Subfamilies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subFamily in subFamilies %}
+            <tr>
+                <td><a href="{{ path('subfamily_show', { 'id': subFamily.id }) }}">{{ subFamily.id }}</a></td>
+                <td>{{ subFamily.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('subfamily_show', { 'id': subFamily.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('subfamily_edit', { 'id': subFamily.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('subfamily_new') }}">Create a new subFamily</a>
+        </li>
+    </ul>
+{% endblock %}

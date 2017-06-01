@@ -1,0 +1,19 @@
+materials_brand:
+    resource: "@MaterialsBundle/Resources/config/routing/brand.yml"
+    prefix:   /brand
+    
+materials_model:
+    resource: "@MaterialsBundle/Resources/config/routing/model.yml"
+    prefix:   /model 
+    
+materials_equipment:
+    resource: "@MaterialsBundle/Resources/config/routing/equipment.yml"
+    prefix:   /equipment 
+    
+materials_subfamily:
+    resource: "@MaterialsBundle/Resources/config/routing/subfamily.yml"
+    prefix:   /subfamily
+     
+materials_family:
+    resource: "@MaterialsBundle/Resources/config/routing/family.yml"
+    prefix:   /family

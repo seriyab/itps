@@ -1,0 +1,24 @@
+family_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:Family:index" }
+    methods:  GET
+
+family_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:Family:show" }
+    methods:  GET
+
+family_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:Family:new" }
+    methods:  [GET, POST]
+
+family_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:Family:edit" }
+    methods:  [GET, POST]
+
+family_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:Family:delete" }
+    methods:  DELETE
