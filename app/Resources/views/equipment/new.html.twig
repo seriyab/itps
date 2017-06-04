@@ -1,16 +1,124 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipment creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div>
+        <a href="{{ path('equipment_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i> Retour</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('equipment_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <div class="clearfix"></div>
+        <div class="separator"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Ajout equipment</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':''}}) }}
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nom <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Famille
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.family, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sous famille
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.subFamily, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Matricule
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.registrationNumber, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Date de mise en circulation
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.dateOfCirculation, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre de sièges
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.numberOfPlaces, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Carosserie
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.bodywork, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Carburant
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.energy, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Puissance fiscale
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.fiscalPower, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Marque
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.brand, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Modéle
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.model, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Carte grise
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.greyCarte, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Statut
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                {{ form_widget(form.status, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a href="{{ path('equipment_index') }}" class="btn btn-default" type="button">Annuler</a>
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

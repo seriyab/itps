@@ -1,39 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Models list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for model in models %}
-            <tr>
-                <td><a href="{{ path('model_show', { 'id': model.id }) }}">{{ model.id }}</a></td>
-                <td>{{ model.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('model_show', { 'id': model.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('model_edit', { 'id': model.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('model_new') }}">Create a new model</a>
-        </li>
-    </ul>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('model_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Modele</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for model in models %}
+                                <tr>
+                                    <td>{{ model.name }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('model_show', { 'id': model.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('model_edit', { 'id': model.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,15 @@
+project_client:
+    resource: "@ProjectBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+project_project:
+    resource: "@ProjectBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+project_supplier:
+    resource: "@ProjectBundle/Resources/config/routing/supplier.yml"
+    prefix:   /supplier
+
+project_materialsofconstruction:
+    resource: "@ProjectBundle/Resources/config/routing/materialsofconstruction.yml"
+    prefix:   /materialsofconstruction

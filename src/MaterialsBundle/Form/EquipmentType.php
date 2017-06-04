@@ -3,6 +3,7 @@
 namespace MaterialsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,22 @@ class EquipmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('family')->add('subFamily')->add('registrationNumber')->add('dateOfCirculation')->add('numberOfPlaces')->add('bodywork')->add('energy')->add('fiscalPower')->add('status')->add('greyCarte')->add('brand')->add('model');
+        $builder->add('name')
+            ->add('family')
+            ->add('subFamily')
+            ->add('registrationNumber')
+            ->add('dateOfCirculation')
+            ->add('numberOfPlaces')
+            ->add('bodywork')
+            ->add('energy', ChoiceType::class, array(
+                'choices' => array('Diesel' => 'Diesel', 'Essence' => 'Essence', 'Hybride' => 'Hybride', 'Electrique - GPL - Autres' => 'Electrique - GPL - Autres')
+            ))
+            ->add('fiscalPower')
+            ->add('status')
+            ->add('greyCarte')
+            ->add('brand')
+            ->add('model')
+        ;
     }
     
     /**

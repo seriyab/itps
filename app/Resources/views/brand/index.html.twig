@@ -1,39 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Brands list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for brand in brands %}
-            <tr>
-                <td><a href="{{ path('brand_show', { 'id': brand.id }) }}">{{ brand.id }}</a></td>
-                <td>{{ brand.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('brand_show', { 'id': brand.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('brand_edit', { 'id': brand.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('brand_new') }}">Create a new brand</a>
-        </li>
-    </ul>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('brand_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Marques</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for brand in brands %}
+                                <tr>
+                                    <td>{{ brand.name }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('brand_show', { 'id': brand.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('brand_edit', { 'id': brand.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

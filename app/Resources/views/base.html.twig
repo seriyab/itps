@@ -63,6 +63,22 @@
                   <li>
                       <a href="{{path('app_homepage')}}"><i class="fa fa-home"></i> Dashboard</a>
                   </li>
+                  <li><a><i class="fa fa-road"></i> Projet <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="tables.html">Appels d'offre</a></li>
+                      <li><a href="tables_dynamic.html">Caution</a></li>
+                      <li><a href="tables_dynamic.html">Retenue a la source</a></li>
+                      <li><a href="tables_dynamic.html">Etat rs</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a><i class="fa fa-bar-chart-o"></i> Chantier <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('project_index') }}">Chantier en cours</a></li>
+                      <li><a href="chartjs2.html">Chantier finalisé</a></li>
+                      <li><a href="morisjs.html">Chantier annulé</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-car"></i> Materiels <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{path('equipment_index')}}">Equipement</a></li>
@@ -86,23 +102,6 @@
                       
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-road"></i> Projet <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="tables.html">Appels d'offre</a></li>
-                      <li><a href="tables_dynamic.html">Caution</a></li>
-                      <li><a href="tables_dynamic.html">Retenue a la source</a></li>
-                      <li><a href="tables_dynamic.html">Etat rs</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
-                    </ul>
-                  </li>
                   <li><a><i class="fa fa-money"></i>Prêt <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">Demande de Prêt</a></li>
@@ -110,20 +109,28 @@
                        <li><a href="fixed_footer.html">Prêt en cours</a></li>
                     </ul>
                   </li>
+                  <li><a href="{{ path('client_index') }}"><i class="fa fa-user"></i> Clients</a></li>
                 </ul>
               </div>
+
               <div class="menu_section">
                 <h3>Configuration</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cogs"></i> Paramétrages <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="{{ path('store_index') }}">Dépôt</a> </li>
+                      <li><a href="{{path('bank_index')}}">Banques</a></li>
+                      <li><a href="{{path('leasing_index')}}">Leasing</a></li>
+                      <li><a href="{{ path('insurancecompany_index') }}">Société d'Assurance</a> </li>
+                      <li><a href="{{ path('kiosk_index') }}">Kiosques</a> </li>
+                      <li><a href="{{ path('mechanic_index') }}">Mécancien</a> </li>
                       <li><a href="{{path('family_index')}}">Famille Equipement</a></li>
                       <li><a href="{{path('subfamily_index')}}">Sous Famille</a></li>
                       <li><a href="{{path('brand_index')}}">Marques</a></li>
                       <li><a href="{{path('model_index')}}">modele</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-user"></i> Utilisateurs <span class="fa fa-chevron-down"></span></a></li>                
+                  <li><a><i class="fa fa-user-secret"></i> Utilisateurs</a></li>
                 </ul>
               </div>
 

@@ -17,3 +17,27 @@ materials_subfamily:
 materials_family:
     resource: "@MaterialsBundle/Resources/config/routing/family.yml"
     prefix:   /family
+
+materials_kiosk:
+    resource: "@MaterialsBundle/Resources/config/routing/kiosk.yml"
+    prefix:   /kiosk
+
+materials_mechanic:
+    resource: "@MaterialsBundle/Resources/config/routing/mechanic.yml"
+    prefix:   /mechanic
+
+materials_insurancecompany:
+    resource: "@MaterialsBundle/Resources/config/routing/insurancecompany.yml"
+    prefix:   /insurancecompany
+
+materials_store:
+    resource: "@MaterialsBundle/Resources/config/routing/store.yml"
+    prefix:   /store
+
+materials_bank:
+    resource: "@MaterialsBundle/Resources/config/routing/bank.yml"
+    prefix:   /bank
+
+materials_leasing:
+    resource: "@MaterialsBundle/Resources/config/routing/leasing.yml"
+    prefix:   /leasing
