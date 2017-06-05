@@ -1,0 +1,24 @@
+mechanic_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:Mechanic:index" }
+    methods:  GET
+
+mechanic_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:Mechanic:show" }
+    methods:  GET
+
+mechanic_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:Mechanic:new" }
+    methods:  [GET, POST]
+
+mechanic_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:Mechanic:edit" }
+    methods:  [GET, POST]
+
+mechanic_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:Mechanic:delete" }
+    methods:  DELETE

@@ -1,0 +1,24 @@
+store_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:Store:index" }
+    methods:  GET
+
+store_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:Store:show" }
+    methods:  GET
+
+store_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:Store:new" }
+    methods:  [GET, POST]
+
+store_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:Store:edit" }
+    methods:  [GET, POST]
+
+store_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:Store:delete" }
+    methods:  DELETE

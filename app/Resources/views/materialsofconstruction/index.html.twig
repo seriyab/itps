@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Materialsofconstructions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Quantity</th>
+                <th>Supplier</th>
+                <th>Project</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for materialsOfConstruction in materialsOfConstructions %}
+            <tr>
+                <td><a href="{{ path('materialsofconstruction_show', { 'id': materialsOfConstruction.id }) }}">{{ materialsOfConstruction.id }}</a></td>
+                <td>{{ materialsOfConstruction.type }}</td>
+                <td>{{ materialsOfConstruction.quantity }}</td>
+                <td>{{ materialsOfConstruction.supplier }}</td>
+                <td>{{ materialsOfConstruction.project }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('materialsofconstruction_show', { 'id': materialsOfConstruction.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('materialsofconstruction_edit', { 'id': materialsOfConstruction.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('materialsofconstruction_new') }}">Create a new materialsOfConstruction</a>
+        </li>
+    </ul>
+{% endblock %}

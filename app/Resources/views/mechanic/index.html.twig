@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('mechanic_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Mécanciens</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>prénom</th>
+                                <th>Téléphone</th>
+                                <th>Adresse</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for mechanic in mechanics %}
+                                <tr>
+                                    <td>{{ mechanic.name }}</td>
+                                    <td>{{ mechanic.lastname }}</td>
+                                    <td>{{ mechanic.address }}</td>
+                                    <td>{{ mechanic.address }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('mechanic_show', { 'id': mechanic.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('mechanic_edit', { 'id': mechanic.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

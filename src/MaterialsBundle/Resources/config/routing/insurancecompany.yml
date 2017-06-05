@@ -1,0 +1,24 @@
+insurancecompany_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:InsuranceCompany:index" }
+    methods:  GET
+
+insurancecompany_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:InsuranceCompany:show" }
+    methods:  GET
+
+insurancecompany_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:InsuranceCompany:new" }
+    methods:  [GET, POST]
+
+insurancecompany_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:InsuranceCompany:edit" }
+    methods:  [GET, POST]
+
+insurancecompany_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:InsuranceCompany:delete" }
+    methods:  DELETE

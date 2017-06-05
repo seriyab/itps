@@ -1,0 +1,24 @@
+materialsofconstruction_index:
+    path:     /
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:index" }
+    methods:  GET
+
+materialsofconstruction_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:show" }
+    methods:  GET
+
+materialsofconstruction_new:
+    path:     /new
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:new" }
+    methods:  [GET, POST]
+
+materialsofconstruction_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:edit" }
+    methods:  [GET, POST]
+
+materialsofconstruction_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:delete" }
+    methods:  DELETE

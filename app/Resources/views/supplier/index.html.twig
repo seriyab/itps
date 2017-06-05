@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Mail</th>
+                <th>Contactname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for supplier in suppliers %}
+            <tr>
+                <td><a href="{{ path('supplier_show', { 'id': supplier.id }) }}">{{ supplier.id }}</a></td>
+                <td>{{ supplier.name }}</td>
+                <td>{{ supplier.address }}</td>
+                <td>{{ supplier.phone }}</td>
+                <td>{{ supplier.mail }}</td>
+                <td>{{ supplier.contactName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('supplier_show', { 'id': supplier.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

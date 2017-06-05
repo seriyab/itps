@@ -1,0 +1,24 @@
+kiosk_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:Kiosk:index" }
+    methods:  GET
+
+kiosk_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:Kiosk:show" }
+    methods:  GET
+
+kiosk_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:Kiosk:new" }
+    methods:  [GET, POST]
+
+kiosk_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:Kiosk:edit" }
+    methods:  [GET, POST]
+
+kiosk_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:Kiosk:delete" }
+    methods:  DELETE
