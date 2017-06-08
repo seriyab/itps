@@ -249,5 +249,10 @@ class Project
     {
         return $this->budget;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
 

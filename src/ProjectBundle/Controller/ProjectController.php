@@ -2,7 +2,9 @@
 
 namespace ProjectBundle\Controller;
 
+use ProjectBundle\Entity\MaterialsOfConstruction;
 use ProjectBundle\Entity\Project;
+use ProjectBundle\Form\MaterialsOfConstructionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -58,6 +60,9 @@ class ProjectController extends Controller
     public function showAction(Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
+        $materialOfConstructionObject = new MaterialsOfConstruction();
+        $materialOfConstructionObject->setProject($project);
+        $materialsOfConstructionForm = $this->createForm(MaterialsOfConstructionType::class, $materialOfConstructionObject);
 
         $em = $this->getDoctrine()->getManager();
         $materialsOfConstructions = $em->getRepository('ProjectBundle:MaterialsOfConstruction')->findBy(
@@ -67,7 +72,8 @@ class ProjectController extends Controller
         return $this->render('project/show.html.twig', array(
             'project' => $project,
             'delete_form' => $deleteForm->createView(),
-            'materialsOfConstructions' => $materialsOfConstructions
+            'materialsOfConstructions' => $materialsOfConstructions,
+            'materialsOfConstructionForm' => $materialsOfConstructionForm->createView()
         ));
     }
 

@@ -1,45 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Materialsofconstructions list</h1>
+    <h1>Matériel de construction</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Quantity</th>
-                <th>Supplier</th>
-                <th>Project</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for materialsOfConstruction in materialsOfConstructions %}
-            <tr>
-                <td><a href="{{ path('materialsofconstruction_show', { 'id': materialsOfConstruction.id }) }}">{{ materialsOfConstruction.id }}</a></td>
-                <td>{{ materialsOfConstruction.type }}</td>
-                <td>{{ materialsOfConstruction.quantity }}</td>
-                <td>{{ materialsOfConstruction.supplier }}</td>
-                <td>{{ materialsOfConstruction.project }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('materialsofconstruction_show', { 'id': materialsOfConstruction.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('materialsofconstruction_edit', { 'id': materialsOfConstruction.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('materialsofconstruction_new') }}" class="btn btn-primary">Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Equipements</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
 
-    <ul>
-        <li>
-            <a href="{{ path('materialsofconstruction_new') }}">Create a new materialsOfConstruction</a>
-        </li>
-    </ul>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Quantité</th>
+                                <th>Fournisseur</th>
+                                <th>Chantier</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for materialsOfConstruction in materialsOfConstructions %}
+                                <tr>
+                                    <td><a href="{{ path('materialsofconstruction_new', { 'id': materialsOfConstruction.id }) }}">{{ materialsOfConstruction.type }}</a></td>
+                                    <td>{{ materialsOfConstruction.quantity }}</td>
+                                    <td>{{ materialsOfConstruction.supplier }}</td>
+                                    <td>{{ materialsOfConstruction.project }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('materialsofconstruction_show', { 'id': materialsOfConstruction.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('materialsofconstruction_edit', { 'id': materialsOfConstruction.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

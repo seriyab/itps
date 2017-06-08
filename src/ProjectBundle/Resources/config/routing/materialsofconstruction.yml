@@ -3,6 +3,11 @@ materialsofconstruction_index:
     defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:index" }
     methods:  GET
 
+materialsofconstruction_list_project:
+    path:     /project/{id}
+    defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:listByProject" }
+    methods:  GET
+
 materialsofconstruction_show:
     path:     /{id}/show
     defaults: { _controller: "ProjectBundle:MaterialsOfConstruction:show" }

@@ -13,3 +13,7 @@ project_supplier:
 project_materialsofconstruction:
     resource: "@ProjectBundle/Resources/config/routing/materialsofconstruction.yml"
     prefix:   /materialsofconstruction
+
+project_typeofconstructionmaterials:
+    resource: "@ProjectBundle/Resources/config/routing/typeofconstructionmaterials.yml"
+    prefix:   /typeofconstructionmaterials

@@ -119,26 +119,11 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                    <h2>App Versions</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
+                    <h2>Matériaux</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <h4>App Usage across versions</h4>
+                    <h4>Utilisation des matériaux</h4>
                     <div class="widget_summary">
                         <div class="w_left w_25">
                             <span>0.1.5.2</span>
@@ -228,22 +213,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320 overflow_hidden">
                 <div class="x_title">
-                    <h2>Device Usage</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
+                    <h2>Utilisation des matériaux</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -254,7 +224,7 @@
                             </th>
                             <th>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <p class="">Device</p>
+                                    <p class="">Type</p>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <p class="">Progress</p>
@@ -458,19 +428,89 @@
                         <div class="x_title">
                             <h2>Matériaux de construction</h2>
                             <div class="nav navbar-right panel_toolbox">
-                                <a href="{{ path('materialsofconstruction_new') }}" class="btn btn-primary">Ajouter</a>
+                                <!-- Large modal -->
+                                <a href="{{ path('materialsofconstruction_list_project', {'id': project.id} ) }}" class="btn btn-default">Liste</a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-materials-of-construction">Ajouter</button>
+
+                                <div class="modal fade add-materials-of-construction" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
+                                            </div>
+                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('materialsofconstruction_new', {'project': project.id}) }}) }}
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Type <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.type, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantité <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.quantity, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prix <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.price, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                {{ form_rest(materialsOfConstructionForm) }}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                            {{ form_end(materialsOfConstructionForm) }}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
 
                             <div class="">
-                                <table>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Quantité</th>
+                                        <th>Prix</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                     {% for materialOfConstruction in materialsOfConstructions %}
                                     <tr>
                                         <td>{{ materialOfConstruction.type }}</td>
+                                        <td>{{ materialOfConstruction.quantity }}</td>
+                                        <td>{{ materialOfConstruction.price }}</td>
                                     </tr>
                                     {% endfor %}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -484,7 +524,65 @@
                         <div class="x_title">
                             <h2>Matériels de chantiers</h2>
                             <div class="nav navbar-right panel_toolbox">
-                                <a href="{{ path('equipment_new') }}" class="btn btn-primary">Ajouter</a>
+                                <a href="{{ path('equipment_index') }}" class="btn btn-default">Liste</a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-materials">Ajouter</button>
+
+                                <div class="modal fade add-materials" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
+                                            </div>
+                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('materialsofconstruction_new', {'project': project.id}) }}) }}
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Type <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.type, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantité <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.quantity, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prix <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.price, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(materialsOfConstructionForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+                                                {{ form_rest(materialsOfConstructionForm) }}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            </div>
+                                            {{ form_end(materialsOfConstructionForm) }}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>

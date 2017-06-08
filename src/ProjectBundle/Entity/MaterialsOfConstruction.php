@@ -31,6 +31,13 @@ class MaterialsOfConstruction
     /**
      * @var float
      *
+     * @ORM\Column(name="price", type="float")
+     */
+    private $price;
+
+    /**
+     * @var float
+     *
      * @ORM\Column(name="quantity", type="float")
      */
     private $quantity;
@@ -45,7 +52,8 @@ class MaterialsOfConstruction
     /**
      * @var string
      *
-     * @ORM\Column(name="project", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Project")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $project;
 
@@ -154,6 +162,24 @@ class MaterialsOfConstruction
     public function getProject()
     {
         return $this->project;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     * @return MaterialsOfConstruction
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+        return $this;
     }
 }
 

@@ -3,6 +3,7 @@
 namespace ProjectBundle\Controller;
 
 use ProjectBundle\Entity\MaterialsOfConstruction;
+use ProjectBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -120,5 +121,22 @@ class MaterialsOfConstructionController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Lists all materialsOfConstruction by project.
+     *
+     * @param Project $project
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listByProjectAction(Project $project)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $materialsOfConstructions = $em->getRepository('ProjectBundle:MaterialsOfConstruction')->findBy(['project' => $project->getId()]);
+
+        return $this->render('materialsofconstruction/index.html.twig', array(
+            'materialsOfConstructions' => $materialsOfConstructions,
+        ));
     }
 }
