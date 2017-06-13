@@ -1,0 +1,7 @@
+staff_personal:
+    resource: "@StaffBundle/Resources/config/routing/personal.yml"
+    prefix:   /personal
+
+staff_employmentcontract:
+    resource: "@StaffBundle/Resources/config/routing/employmentcontract.yml"
+    prefix:   /employmentcontract

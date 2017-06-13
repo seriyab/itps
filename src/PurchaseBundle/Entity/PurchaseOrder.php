@@ -31,7 +31,8 @@ class PurchaseOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="Buyer", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="StaffBundle\Entity\Personal")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $buyer;
 
@@ -62,6 +63,13 @@ class PurchaseOrder
      * @ORM\Column(name="status", type="string", length=10)
      */
     private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="currence", type="string", length=10)
+     */
+    private $currency;
 
     /**
      * @var string
@@ -222,6 +230,24 @@ class PurchaseOrder
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string $currency
+     * @return PurchaseOrder
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+        return $this;
     }
 
     /**

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employmentcontracts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Personal</th>
+                <th>Function</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Signaturedate</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employmentContract in employmentContracts %}
+            <tr>
+                <td><a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}">{{ employmentContract.id }}</a></td>
+                <td>{{ employmentContract.type }}</td>
+                <td>{{ employmentContract.personal }}</td>
+                <td>{{ employmentContract.function }}</td>
+                <td>{% if employmentContract.startDate %}{{ employmentContract.startDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if employmentContract.endDate %}{{ employmentContract.endDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if employmentContract.signatureDate %}{{ employmentContract.signatureDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ employmentContract.salary }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('employmentcontract_edit', { 'id': employmentContract.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employmentcontract_new') }}">Create a new employmentContract</a>
+        </li>
+    </ul>
+{% endblock %}

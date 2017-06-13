@@ -1,0 +1,24 @@
+personal_index:
+    path:     /
+    defaults: { _controller: "StaffBundle:Personal:index" }
+    methods:  GET
+
+personal_show:
+    path:     /{id}/show
+    defaults: { _controller: "StaffBundle:Personal:show" }
+    methods:  GET
+
+personal_new:
+    path:     /new
+    defaults: { _controller: "StaffBundle:Personal:new" }
+    methods:  [GET, POST]
+
+personal_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "StaffBundle:Personal:edit" }
+    methods:  [GET, POST]
+
+personal_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "StaffBundle:Personal:delete" }
+    methods:  DELETE

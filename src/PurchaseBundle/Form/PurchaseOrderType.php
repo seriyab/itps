@@ -3,6 +3,7 @@
 namespace PurchaseBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,6 +21,9 @@ class PurchaseOrderType extends AbstractType
             ->add('deliverydate')
             ->add('location')
             ->add('status')
+            ->add('currency', ChoiceType::class, array(
+                'choices' => array('TND' => 'tnd', 'EURO' => 'Euro'),
+            ))
             ->add('orderLine', OrderLineType::class, array('mapped' => 'false'));
     }
     

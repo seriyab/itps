@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employmentcontract</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ employmentContract.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ employmentContract.type }}</td>
+            </tr>
+            <tr>
+                <th>Personal</th>
+                <td>{{ employmentContract.personal }}</td>
+            </tr>
+            <tr>
+                <th>Function</th>
+                <td>{{ employmentContract.function }}</td>
+            </tr>
+            <tr>
+                <th>Startdate</th>
+                <td>{% if employmentContract.startDate %}{{ employmentContract.startDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enddate</th>
+                <td>{% if employmentContract.endDate %}{{ employmentContract.endDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Signaturedate</th>
+                <td>{% if employmentContract.signatureDate %}{{ employmentContract.signatureDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td>{{ employmentContract.salary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employmentcontract_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('employmentcontract_edit', { 'id': employmentContract.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

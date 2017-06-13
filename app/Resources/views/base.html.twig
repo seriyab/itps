@@ -93,13 +93,13 @@
                   </li>
                   <li><a><i class="fa fa-users"></i> Ressources humaines <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Liste personnels</a></li>
+                      <li><a href="{{ path('personal_index') }}">Liste personnels</a></li>
+                      <li><a href="{{ path('employmentcontract_index') }}">Contrat</a></li>
                       <li><a href="media_gallery.html">Pointage</a></li>
                       <li><a href="typography.html">Frais personnels</a></li>
                       <li><a href="icons.html">Fiche de paie</a></li>
                       <li><a href="glyphicons.html">Demande congé</a></li>
                       <li><a href="widgets.html">Fiche inscription</a></li>
-                      <li><a href="invoice.html">Contrat</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-car"></i> Materiels <span class="fa fa-chevron-down"></span></a>
@@ -286,6 +286,7 @@
       </div>
     </div>
 
+    {% block javascripts %}
     <!-- jQuery -->
     <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
@@ -326,6 +327,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{asset('build/js/custom.min.js')}}"></script>
-	
+	{% endblock %}
   </body>
 </html>
