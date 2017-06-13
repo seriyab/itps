@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Partnercategory</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ partnerCategory.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ partnerCategory.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('partnercategory_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('partnercategory_edit', { 'id': partnerCategory.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

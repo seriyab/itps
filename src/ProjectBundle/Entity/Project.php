@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Project
  *
- * @ORM\Table(name="project")
+ * @ORM\Table(name="construction_site")
  * @ORM\Entity(repositoryClass="ProjectBundle\Repository\ProjectRepository")
  */
 class Project
@@ -35,6 +35,13 @@ class Project
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="duration", type="string", nullable=true, length=10))
+     */
+    private $duration;
 
     /**
      * @var \DateTime
@@ -70,6 +77,20 @@ class Project
      * @ORM\Column(name="budget", type="float", nullable=true)
      */
     private $budget;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", nullable=true, length=20))
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", nullable=true, length=255))
+     */
+    private $status;
 
 
     /**
@@ -248,6 +269,66 @@ class Project
     public function getBudget()
     {
         return $this->budget;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * @param float $duration
+     *
+     * @return Project
+     */
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param float $type
+     *
+     * @return Project
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     *
+     * @return Project
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
     }
 
     public function __toString()

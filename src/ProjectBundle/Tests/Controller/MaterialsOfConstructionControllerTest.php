@@ -4,7 +4,7 @@ namespace ProjectBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class MaterialsOfConstructionControllerTest extends WebTestCase
+class ProductControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()

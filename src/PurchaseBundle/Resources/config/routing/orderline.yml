@@ -1,0 +1,24 @@
+orderline_index:
+    path:     /
+    defaults: { _controller: "PurchaseBundle:OrderLine:index" }
+    methods:  GET
+
+orderline_show:
+    path:     /{id}/show
+    defaults: { _controller: "PurchaseBundle:OrderLine:show" }
+    methods:  GET
+
+orderline_new:
+    path:     /new
+    defaults: { _controller: "PurchaseBundle:OrderLine:new" }
+    methods:  [GET, POST]
+
+orderline_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PurchaseBundle:OrderLine:edit" }
+    methods:  [GET, POST]
+
+orderline_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PurchaseBundle:OrderLine:delete" }
+    methods:  DELETE

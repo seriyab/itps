@@ -2,9 +2,9 @@
 
 namespace ProjectBundle\Controller;
 
-use ProjectBundle\Entity\MaterialsOfConstruction;
+use PurchaseBundle\Entity\Product;
 use ProjectBundle\Entity\Project;
-use ProjectBundle\Form\MaterialsOfConstructionType;
+use PurchaseBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -36,7 +36,7 @@ class ProjectController extends Controller
     public function newAction(Request $request)
     {
         $project = new Project();
-        $form = $this->createForm('ProjectBundle\Form\ProjectType', $project);
+        $form = $this->createForm('PurchaseBundle\Form\ProjectType', $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,12 +60,12 @@ class ProjectController extends Controller
     public function showAction(Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
-        $materialOfConstructionObject = new MaterialsOfConstruction();
+        $materialOfConstructionObject = new Product();
         $materialOfConstructionObject->setProject($project);
-        $materialsOfConstructionForm = $this->createForm(MaterialsOfConstructionType::class, $materialOfConstructionObject);
+        $materialsOfConstructionForm = $this->createForm(ProductType::class, $materialOfConstructionObject);
 
         $em = $this->getDoctrine()->getManager();
-        $materialsOfConstructions = $em->getRepository('ProjectBundle:MaterialsOfConstruction')->findBy(
+        $materialsOfConstructions = $em->getRepository('PurchaseBundle:Product')->findBy(
             array('project' => $project->getId()), array('id' => 'DESC'), 10
         );
 
@@ -84,7 +84,7 @@ class ProjectController extends Controller
     public function editAction(Request $request, Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
-        $editForm = $this->createForm('ProjectBundle\Form\ProjectType', $project);
+        $editForm = $this->createForm('PurchaseBundle\Form\ProjectType', $project);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

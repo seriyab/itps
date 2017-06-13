@@ -1,40 +1,61 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Suppliers list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Mail</th>
-                <th>Contactname</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for supplier in suppliers %}
-            <tr>
-                <td><a href="{{ path('supplier_show', { 'id': supplier.id }) }}">{{ supplier.id }}</a></td>
-                <td>{{ supplier.name }}</td>
-                <td>{{ supplier.address }}</td>
-                <td>{{ supplier.phone }}</td>
-                <td>{{ supplier.mail }}</td>
-                <td>{{ supplier.contactName }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('supplier_show', { 'id': supplier.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('supplier_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Fournisseurs</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Categorie</th>
+                                <th>Ville</th>
+                                <th>Téléphone</th>
+                                <th>Fax</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Siret</th>
+                                <th>TVA</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for supplier in suppliers %}
+                                <tr>
+                                    <td>{{ supplier.name }}</td>
+                                    <td>{{ supplier.type }}</td>
+                                    <td>{{ supplier.category }}</td>
+                                    <td>{{ supplier.city }}</td>
+                                    <td>{{ supplier.phone }}</td>
+                                    <td>{{ supplier.fax }}</td>
+                                    <td>{{ supplier.mail }}</td>
+                                    <td>{{ supplier.contactName }}</td>
+                                    <td>{{ supplier.siretNumber }}</td>
+                                    <td>{{ supplier.tvaNumber }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ path('supplier_show', { 'id': supplier.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('supplier_edit', { 'id': supplier.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

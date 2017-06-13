@@ -1,0 +1,24 @@
+purchaseorder_index:
+    path:     /
+    defaults: { _controller: "PurchaseBundle:PurchaseOrder:index" }
+    methods:  GET
+
+purchaseorder_show:
+    path:     /{id}/show
+    defaults: { _controller: "PurchaseBundle:PurchaseOrder:show" }
+    methods:  GET
+
+purchaseorder_new:
+    path:     /new
+    defaults: { _controller: "PurchaseBundle:PurchaseOrder:new" }
+    methods:  [GET, POST]
+
+purchaseorder_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PurchaseBundle:PurchaseOrder:edit" }
+    methods:  [GET, POST]
+
+purchaseorder_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PurchaseBundle:PurchaseOrder:delete" }
+    methods:  DELETE

@@ -1,12 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
-
 <div class="login_wrapper">
     <div class="animate form login_form">
         <section class="login_content">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
             <form action="{{ path("fos_user_security_check") }}" method="post">
                 <h1>Connexion</h1>
                 <div>
@@ -19,7 +18,9 @@
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
                 </div>
-
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
                 <div>
                     <input type="submit" class="btn btn-primary submit full-width" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
                 </div>
@@ -32,7 +33,7 @@
 
                     <div>
                         <h1><i class="fa fa-road"></i> ITPS</h1>
-                        <p>©2017 All Rights Reserved. ITPS</p>
+                        <p>© Copyright 2017</p>
                     </div>
                 </div>
             </form>

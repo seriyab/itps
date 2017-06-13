@@ -429,7 +429,7 @@
                             <h2>Matériaux de construction</h2>
                             <div class="nav navbar-right panel_toolbox">
                                 <!-- Large modal -->
-                                <a href="{{ path('materialsofconstruction_list_project', {'id': project.id} ) }}" class="btn btn-default">Liste</a>
+                                <a href="{{ path('product_list_project', {'id': project.id} ) }}" class="btn btn-default">Liste</a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-materials-of-construction">Ajouter</button>
 
                                 <div class="modal fade add-materials-of-construction" tabindex="-1" role="dialog" aria-hidden="true">
@@ -441,7 +441,7 @@
                                                 </button>
                                                 <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
                                             </div>
-                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('materialsofconstruction_new', {'project': project.id}) }}) }}
+                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
@@ -536,7 +536,7 @@
                                                 </button>
                                                 <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
                                             </div>
-                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('materialsofconstruction_new', {'project': project.id}) }}) }}
+                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>

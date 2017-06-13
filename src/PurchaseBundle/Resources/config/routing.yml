@@ -1,0 +1,23 @@
+purchase_supplier:
+    resource: "@PurchaseBundle/Resources/config/routing/supplier.yml"
+    prefix:   /supplier
+
+purchase_product:
+    resource: "@PurchaseBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+project_typeofconstructionmaterials:
+    resource: "@PurchaseBundle/Resources/config/routing/producttype.yml"
+    prefix:   /product_type
+
+purchase_partnercategory:
+    resource: "@PurchaseBundle/Resources/config/routing/partnercategory.yml"
+    prefix:   /partnercategory
+
+purchase_purchaseorder:
+    resource: "@PurchaseBundle/Resources/config/routing/purchaseorder.yml"
+    prefix:   /purchaseorder
+
+purchase_orderline:
+    resource: "@PurchaseBundle/Resources/config/routing/orderline.yml"
+    prefix:   /orderline

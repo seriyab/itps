@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Purchaseorder</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ purchaseOrder.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ purchaseOrder.reference }}</td>
+            </tr>
+            <tr>
+                <th>Buyer</th>
+                <td>{{ purchaseOrder.buyer }}</td>
+            </tr>
+            <tr>
+                <th>Supplier</th>
+                <td>{{ purchaseOrder.supplier }}</td>
+            </tr>
+            <tr>
+                <th>Deliverydate</th>
+                <td>{% if purchaseOrder.deliverydate %}{{ purchaseOrder.deliverydate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ purchaseOrder.location }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ purchaseOrder.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('purchaseorder_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('purchaseorder_edit', { 'id': purchaseOrder.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orderlines list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>Taxe</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderLine in orderLines %}
+            <tr>
+                <td><a href="{{ path('orderline_show', { 'id': orderLine.id }) }}">{{ orderLine.id }}</a></td>
+                <td>{{ orderLine.quantity }}</td>
+                <td>{{ orderLine.taxe }}</td>
+                <td>{{ orderLine.label }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('orderline_show', { 'id': orderLine.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('orderline_edit', { 'id': orderLine.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('orderline_new') }}">Create a new orderLine</a>
+        </li>
+    </ul>
+{% endblock %}

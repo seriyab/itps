@@ -1,0 +1,24 @@
+supplier_index:
+    path:     /
+    defaults: { _controller: "PurchaseBundle:Supplier:index" }
+    methods:  GET
+
+supplier_show:
+    path:     /{id}/show
+    defaults: { _controller: "PurchaseBundle:Supplier:show" }
+    methods:  GET
+
+supplier_new:
+    path:     /new
+    defaults: { _controller: "PurchaseBundle:Supplier:new" }
+    methods:  [GET, POST]
+
+supplier_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PurchaseBundle:Supplier:edit" }
+    methods:  [GET, POST]
+
+supplier_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PurchaseBundle:Supplier:delete" }
+    methods:  DELETE

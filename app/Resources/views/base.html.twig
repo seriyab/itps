@@ -48,7 +48,7 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenue,</span>
-                <h2>John Doe</h2>
+                <h2>{{ app.user.username | capitalize}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -63,20 +63,43 @@
                   <li>
                       <a href="{{path('app_homepage')}}"><i class="fa fa-home"></i> Dashboard</a>
                   </li>
-                  <li><a><i class="fa fa-road"></i> Projet <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="tables.html">Appels d'offre</a></li>
-                      <li><a href="tables_dynamic.html">Caution</a></li>
-                      <li><a href="tables_dynamic.html">Retenue a la source</a></li>
-                      <li><a href="tables_dynamic.html">Etat rs</a></li>
-                    </ul>
-                  </li>
                   <li>
                     <a><i class="fa fa-bar-chart-o"></i> Chantier <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ path('project_index') }}">Chantier en cours</a></li>
                       <li><a href="chartjs2.html">Chantier finalisé</a></li>
                       <li><a href="morisjs.html">Chantier annulé</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-money"></i>Ventes <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('client_index') }}">Clients</a></li>
+                      <li><a href="{{ path('client_index') }}">Appels d'offres</a></li>
+                      <li><a href="{{ path('purchaseorder_new') }}">Nouv. Devis client</a> </li>
+                      <li><a href="{{ path('purchaseorder_index') }}">Devis clients</a> </li>
+                      <li><a href="{{ path('subfamily_new') }}">Cautions</a> </li>
+                      <li><a href="tables_dynamic.html">Retenue a la source</a></li>
+                      <li><a href="tables_dynamic.html">Etat rs</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-shopping-cart"></i>Achats <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('supplier_index') }}">Fournisseurs</a></li>
+                      <li><a href="{{ path('purchaseorder_new') }}">Nouvelle commande</a> </li>
+                      <li><a href="{{ path('purchaseorder_index') }}">Devis/Cmdes Fournisseurs</a> </li>
+                      <li><a href="{{ path('subfamily_new') }}">Demandes d'achat</a> </li>
+                      <li><a href="{{ path('subfamily_new') }}">Demandes d'achat complétés</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-users"></i> Ressources humaines <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="general_elements.html">Liste personnels</a></li>
+                      <li><a href="media_gallery.html">Pointage</a></li>
+                      <li><a href="typography.html">Frais personnels</a></li>
+                      <li><a href="icons.html">Fiche de paie</a></li>
+                      <li><a href="glyphicons.html">Demande congé</a></li>
+                      <li><a href="widgets.html">Fiche inscription</a></li>
+                      <li><a href="invoice.html">Contrat</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-car"></i> Materiels <span class="fa fa-chevron-down"></span></a>
@@ -90,18 +113,6 @@
                       <li><a href="form_buttons.html">Contre Bon</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-users"></i> Personnels <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Liste personnels</a></li>
-                      <li><a href="media_gallery.html">Pointage</a></li>
-                      <li><a href="typography.html">Frais personnels</a></li>
-                      <li><a href="icons.html">Fiche de paie</a></li>
-                      <li><a href="glyphicons.html">Demande congé</a></li>
-                      <li><a href="widgets.html">Fiche inscription</a></li>
-                      <li><a href="invoice.html">Contrat</a></li>
-                      
-                    </ul>
-                  </li>
                   <li><a><i class="fa fa-money"></i>Prêt <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">Demande de Prêt</a></li>
@@ -109,26 +120,32 @@
                        <li><a href="fixed_footer.html">Prêt en cours</a></li>
                     </ul>
                   </li>
-                  <li><a href="{{ path('client_index') }}"><i class="fa fa-user"></i> Clients</a></li>
+                  <li><a><i class="fa fa-cubes"></i>Stocks <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{ path('store_index') }}">Entrepôt</a></li>
+                      <li><a href="fixed_sidebar.html">Mouvement internes</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
 
               <div class="menu_section">
                 <h3>Configuration</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-cogs"></i> Paramétrages <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-cogs"></i> Configuration <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ path('store_index') }}">Dépôt</a> </li>
+                      <li><a href="{{path('producttype_index')}}">Type de produits</a></li>
                       <li><a href="{{path('bank_index')}}">Banques</a></li>
                       <li><a href="{{path('leasing_index')}}">Leasing</a></li>
                       <li><a href="{{ path('insurancecompany_index') }}">Société d'Assurance</a> </li>
                       <li><a href="{{ path('kiosk_index') }}">Kiosques</a> </li>
                       <li><a href="{{ path('mechanic_index') }}">Mécancien</a> </li>
-                      <li><a href="{{path('typeofconstructionmaterials_index')}}">Type de matériel de construction</a></li>
-                      <li><a href="{{path('family_index')}}">Famille Equipement</a></li>
-                      <li><a href="{{path('subfamily_index')}}">Sous Famille</a></li>
+                      <li><a href="{{ path('partnercategory_index') }}">Categorie Partenaire</a> </li>
                       <li><a href="{{path('brand_index')}}">Marques</a></li>
-                      <li><a href="{{path('model_index')}}">modele</a></li>
+                      <li><a href="{{path('model_index')}}">Modeles</a></li>
+                      <li><a href="{{path('family_index')}}">Famille equipement</a></li>
+                      <li><a href="{{path('subfamily_index')}}">Sous Famille equipement</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-user-secret"></i> Utilisateurs</a></li>
@@ -149,7 +166,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ path('fos_user_security_login') }}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -168,7 +185,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('bundles/app/images/user.png') }}" alt="">John Doe
+                    <img src="{{ asset('bundles/app/images/user.png') }}" alt="">{{ app.user.username | capitalize }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -184,7 +201,7 @@
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
+                {#<li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
@@ -247,7 +264,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li>#}
               </ul>
             </nav>
           </div>
@@ -261,7 +278,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            ITPS | © Copyright 2017
           </div>
           <div class="clearfix"></div>
         </footer>

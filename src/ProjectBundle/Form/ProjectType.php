@@ -5,6 +5,8 @@ namespace ProjectBundle\Form;
 use ProjectBundle\Entity\Client;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,7 +26,12 @@ class ProjectType extends AbstractType
             ->add('endDate')
             ->add('city')
             ->add('address')
-            ->add('budget');
+            ->add('budget')
+            ->add('duration', NumberType::class)
+            ->add('type')
+            ->add('status', ChoiceType::class, array(
+                'choices' => array('En cours' => 'En cours', 'Terminé' => 'Terminé', 'Annulé' => 'Annulé')
+            ));
     }
     
     /**

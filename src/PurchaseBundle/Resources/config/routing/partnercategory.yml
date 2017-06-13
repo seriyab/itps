@@ -1,0 +1,24 @@
+partnercategory_index:
+    path:     /
+    defaults: { _controller: "PurchaseBundle:PartnerCategory:index" }
+    methods:  GET
+
+partnercategory_show:
+    path:     /{id}/show
+    defaults: { _controller: "PurchaseBundle:PartnerCategory:show" }
+    methods:  GET
+
+partnercategory_new:
+    path:     /new
+    defaults: { _controller: "PurchaseBundle:PartnerCategory:new" }
+    methods:  [GET, POST]
+
+partnercategory_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PurchaseBundle:PartnerCategory:edit" }
+    methods:  [GET, POST]
+
+partnercategory_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PurchaseBundle:PartnerCategory:delete" }
+    methods:  DELETE
