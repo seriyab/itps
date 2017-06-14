@@ -24,7 +24,7 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="PurchaseOrder", inversedBy="orderLine")
+     * @ORM\ManyToOne(targetEntity="PurchaseOrder", inversedBy="orderLines", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $purchaseOrder;

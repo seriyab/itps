@@ -13,7 +13,12 @@ class OrderLineType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('quantity')->add('taxe')->add('label')->add('purchaseOrder')->add('product');
+        $builder
+            ->add('quantity')
+            ->add('taxe')
+            ->add('label')
+            ->add('purchaseOrder')
+            ->add('product');
     }
     
     /**

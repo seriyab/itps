@@ -39,7 +39,8 @@ class PurchaseOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="supplier", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Supplier")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $supplier;
 
@@ -74,9 +75,10 @@ class PurchaseOrder
     /**
      * @var string
      *
-     * @ORM\OneToMany(targetEntity="OrderLine", mappedBy="purchaseOrder")
+     * @ORM\OneToMany(targetEntity="OrderLine", mappedBy="purchaseOrder", cascade={"persist","remove"})
      */
-    private $orderLine;
+    private $orderLines;
+
 
     /**
      * Get id
@@ -253,21 +255,23 @@ class PurchaseOrder
     /**
      * @return string
      */
-    public function getOrderLine()
+    public function getOrderLines()
     {
-        return $this->orderLine;
+        return $this->orderLines;
     }
 
-    /**
-     * @param string $orderLine
-     *
-     * @return PurchaseOrder
-     */
-    public function setOrderLine($orderLine)
+    public function addOrderLine(OrderLine $orderLine)
     {
-        $this->orderLine = $orderLine;
+        $orderLine->setPurchaseOrder($this);
+        $this->orderLines[] = $orderLine;
 
         return $this;
     }
+
+    public function removeOrderLine(OrderLine $orderLine)
+    {
+        $this->orderLines->removeElement($orderLine);
+    }
+
 }
 
