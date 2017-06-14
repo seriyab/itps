@@ -11,7 +11,7 @@
             <div class="col-md-12 col-sm-6 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Equipements</h2>
+                        <h2>Produits</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -26,9 +26,7 @@
                             <thead>
                             <tr>
                                 <th>Type</th>
-                                <th>Quantité</th>
-                                <th>Fournisseur</th>
-                                <th>Chantier</th>
+                                <th>Nom</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -36,9 +34,7 @@
                             {% for materialsOfConstruction in materialsOfConstructions %}
                                 <tr>
                                     <td><a href="{{ path('product_new', { 'id': materialsOfConstruction.id }) }}">{{ materialsOfConstruction.type }}</a></td>
-                                    <td>{{ materialsOfConstruction.quantity }}</td>
-                                    <td>{{ materialsOfConstruction.supplier }}</td>
-                                    <td>{{ materialsOfConstruction.project }}</td>
+                                    <td>{{ materialsOfConstruction.name }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{ path('product_show', { 'id': materialsOfConstruction.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-eye"></i></a>
