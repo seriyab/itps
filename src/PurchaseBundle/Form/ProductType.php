@@ -17,10 +17,10 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('name')
             ->add('type', EntityType::class, array(
                 'class' =>BaseProductType::class
             ))
-            ->add('supplier')
             ->add('category', ChoiceType::class, array(
                 'choices' => array(
                     'Fourniture bureau' => 'Fourniture bureau',
@@ -28,10 +28,7 @@ class ProductType extends AbstractType
                     'Piéces mécaniques' => 'Piéces mécaniques'
                     )
             ))
-            ->add('quantity')
-            ->add('price')
-            ->add('supplier')
-            ->add('project');
+            ->add('price');
     }
     
     /**

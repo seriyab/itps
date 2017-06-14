@@ -32,7 +32,7 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\ManyToOne(targetEntity="ProductType")
      * @Orm\JoinColumn(nullable=false)
      */
     private $product;
@@ -40,21 +40,21 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\Column(name="quantity", type="integer")
+     * @ORM\Column(name="quantity", type="integer", nullable=true)
      */
     private $quantity;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="taxe", type="string", length=20)
+     * @ORM\Column(name="taxe", type="string", length=20, nullable=true)
      */
     private $taxe;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=255)
+     * @ORM\Column(name="label", type="string", length=255, nullable=true)
      */
     private $label;
 

@@ -273,5 +273,9 @@ class PurchaseOrder
         $this->orderLines->removeElement($orderLine);
     }
 
+    public function __toString()
+    {
+        return $this->getReference();
+    }
 }
 

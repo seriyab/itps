@@ -24,6 +24,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="category", type="string", length=255)
      */
     private $category;
@@ -48,31 +55,6 @@ class Product
      * @ORM\Column(name="quantity", type="float")
      */
     private $quantity;
-
-    /**
-     * @var string
-     *
-     * @ORM\ManyToOne(targetEntity="PurchaseBundle\Entity\Supplier")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $supplier;
-
-    /**
-     * @var string
-     *
-     * @ORM\manyToOne(targetEntity="MaterialsBundle\Entity\Store")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $warehouse;
-
-    /**
-     * @var string
-     *
-     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $project;
-
 
     /**
      * Get id
@@ -133,54 +115,6 @@ class Product
     }
 
     /**
-     * Set supplier
-     *
-     * @param string $supplier
-     *
-     * @return MaterialsOfConstruction
-     */
-    public function setSupplier($supplier)
-    {
-        $this->supplier = $supplier;
-
-        return $this;
-    }
-
-    /**
-     * Get supplier
-     *
-     * @return string
-     */
-    public function getSupplier()
-    {
-        return $this->supplier;
-    }
-
-    /**
-     * Set project
-     *
-     * @param string $project
-     *
-     * @return MaterialsOfConstruction
-     */
-    public function setProject($project)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    /**
-     * Get project
-     *
-     * @return string
-     */
-    public function getProject()
-    {
-        return $this->project;
-    }
-
-    /**
      * @return float
      */
     public function getPrice()
@@ -221,21 +155,26 @@ class Product
     /**
      * @return string
      */
-    public function getWarehouse()
+    public function getName()
     {
-        return $this->warehouse;
+        return $this->name;
     }
 
     /**
-     * @param string $warehouse
+     * @param string $name
      *
      * @return Product
      */
-    public function setWarehouse($warehouse)
+    public function setName($name)
     {
-        $this->warehouse = $warehouse;
+        $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
 

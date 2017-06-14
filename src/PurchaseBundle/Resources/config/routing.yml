@@ -8,7 +8,7 @@ purchase_product:
 
 project_typeofconstructionmaterials:
     resource: "@PurchaseBundle/Resources/config/routing/producttype.yml"
-    prefix:   /product_type
+    prefix:   /producttype
 
 purchase_partnercategory:
     resource: "@PurchaseBundle/Resources/config/routing/partnercategory.yml"
