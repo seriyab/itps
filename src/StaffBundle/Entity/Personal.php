@@ -2,6 +2,7 @@
 
 namespace StaffBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,7 +41,7 @@ class Personal
      *
      * @ORM\Column(name="birthdate", type="date", nullable=true)
      */
-    private $Birthdate;
+    private $birthdate;
 
     /**
      * @var string
@@ -73,14 +74,7 @@ class Personal
     /**
      * @var int
      *
-     * @ORM\Column(name="zipcode", type="integer", nullable=true)
-     */
-    private $zipcode;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="martial_status", type="string", length=10, nullable=true)
+     * @ORM\Column(name="martial_status", type="string", length=20, nullable=true)
      */
     private $martialStatus;
 
@@ -91,6 +85,11 @@ class Personal
      */
     private $drivingLicense;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="EmploymentContract", mappedBy="personal", cascade={"persist","remove"})
+     */
+    private $contracts;
     /**
      * @var int
      *
@@ -254,30 +253,6 @@ class Personal
     }
 
     /**
-     * Set zipcode
-     *
-     * @param integer $zipcode
-     *
-     * @return Personal
-     */
-    public function setZipcode($zipcode)
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    /**
-     * Get zipcode
-     *
-     * @return int
-     */
-    public function getZipcode()
-    {
-        return $this->zipcode;
-    }
-
-    /**
      * @return int
      */
     public function getMartialStatus()
@@ -336,22 +311,43 @@ class Personal
      */
     public function getBirthdate()
     {
-        return $this->Birthdate;
+        return $this->birthdate;
     }
 
     /**
-     * @param string $Birthdate
+     * @param string $birthdate
      * @return Personal
      */
-    public function setBirthdate($Birthdate)
+    public function setBirthdate($birthdate)
     {
-        $this->Birthdate = $Birthdate;
+        $this->birthdate = $birthdate;
         return $this;
     }
 
     public function __toString()
     {
         return $this->getFirstname() . ' ' . $this->getLastname();
+    }
+
+    /**
+     * @return string
+     */
+    public function getContracts()
+    {
+        return $this->contracts;
+    }
+
+    public function addContract(EmploymentContract $contract)
+    {
+        $contract->setPersonal($this);
+        $this->contracts[] = $contract;
+
+        return $this;
+    }
+
+    public function removeContract(EmploymentContract $contract)
+    {
+        $this->contracts->removeElement($contract);
     }
 }
 

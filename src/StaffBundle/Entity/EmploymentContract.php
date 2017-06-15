@@ -31,7 +31,7 @@ class EmploymentContract
     /**
      * @var \stdClass
      *
-     * @ORM\ManyToOne(targetEntity="Personal")
+     * @ORM\ManyToOne(targetEntity="Personal", inversedBy="contracts", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $personal;

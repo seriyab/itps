@@ -1,16 +1,162 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+    <!-- Switchery -->
+    <link href="{{ asset('vendors/switchery/dist/switchery.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% set prototype_contract = form.contracts.vars.prototype %}
+
 {% block body %}
-    <h1>Personal creation</h1>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Nouveau personnel</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="prototype-tome" class="prototype-tome hide">
+            <section class="form-group">
+                {{ form_widget(prototype_contract) }}
+            </section>
+        </div>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. général</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="">
+                                <label> {{ form_widget(form.isTemporary, {'attr': {'class': 'js-switch'}}) }} Temporaire</label>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Prénom</label>
+                                {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Foulen'}}) }}
+                            </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Nom</label>
+                                {{ form_widget(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Ben foulen'}}) }}
+                            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('personal_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Date de naissance</label>
+                                {{ form_widget(form.birthdate, {'attr': {'class': 'form-control', 'data-inputmask': "'mask': '99/99/9999'"}}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. Coordonées</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Adresse</label>
+                            {{ form_widget(form.address, {'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Téléphone</label>
+                            {{ form_widget(form.phone, {'attr': {'class': 'form-control', 'placeholder': 'Téléphone'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Mobile</label>
+                            {{ form_widget(form.mobile, {'attr': {'class': 'form-control', 'placeholder': 'Mobile'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Mail</label>
+                            {{ form_widget(form.mail, {'attr': {'class': 'form-control', 'placeholder': 'Mail', 'data-validate-linked':'email' }}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Autres informations</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Permis de conduire</label>
+                            {{ form_widget(form.drivingLicense, {'attr': {'class': 'form-control', 'placeholder': 'Permis de conduire'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Etat civil</label>
+                            {{ form_widget(form.martialStatus, {'attr': {'class': 'form-control', 'placeholder': 'Etat civil'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Ajouter un contrat de travail</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <a href="#" id="add-tome" class="btn btn-success">Ajouter un contrat de travail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title" id="container-tome">
+                        <h2>Ajouter un contrat</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-success">
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- jquery.inputmask -->
+    <script src="{{ asset('vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js')}}"></script>
+    <!-- Switchery -->
+    <script src="{{ asset('vendors/switchery/dist/switchery.min.js') }}"></script>
+
+    <!-- validator -->
+    <script src="{{ asset('vendors/vendors/validator/validator.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            //Attention à bien vérifier que vos selecteurs correspondent à votre code
+            $('#add-tome').on('click', function(event){
+                event.preventDefault();
+                event.stopPropagation();
+
+                var $prototypeTome = $('#prototype-tome').clone();
+                $prototypeTome = $($prototypeTome.html().replace(/__name__/g, $('.prototype-tome').length));
+
+                var $linkDelete = $('<div><a href="#" class="btn btn-danger delete-tome">Supprimer</a></div>');
+                $prototypeTome.append($linkDelete);
+
+                $linkDelete.on('click', function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $prototypeTome.remove();
+                });
+
+                $('#container-tome').prepend($prototypeTome);
+            });
+        });
+    </script>
 {% endblock %}
