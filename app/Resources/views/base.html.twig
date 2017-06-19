@@ -88,8 +88,12 @@
                       <li><a href="{{ path('supplier_index') }}">Fournisseurs</a></li>
                       <li><a href="{{ path('purchaseorder_new') }}">Nouvelle commande</a> </li>
                       <li><a href="{{ path('purchaseorder_index') }}">Devis/Cmdes Fournisseurs</a> </li>
-                      <li><a href="{{ path('subfamily_new') }}">Demandes d'achat</a> </li>
-                      <li><a href="{{ path('subfamily_new') }}">Demandes d'achat complétés</a></li>
+                      <li><a href="{{ path('orderline_index') }}">Demandes d'achat</a> </li>
+                      <li><a>Configuration <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="{{path('producttype_index')}}">Type de produits</a></li>
+                        </ul>
+                      </li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-users"></i> Ressources humaines <span class="fa fa-chevron-down"></span></a>
@@ -116,7 +120,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-car"></i> Materiels <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-car"></i> Equipements <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{path('equipment_index')}}">Equipement</a></li>
                       <li><a href="form_advanced.html">Vidanges</a></li>
@@ -141,18 +145,16 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-cogs"></i> Configuration <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ path('store_index') }}">Dépôt</a> </li>
-                      <li><a href="{{path('producttype_index')}}">Type de produits</a></li>
                       <li><a href="{{path('bank_index')}}">Banques</a></li>
                       <li><a href="{{path('leasing_index')}}">Leasing</a></li>
                       <li><a href="{{ path('insurancecompany_index') }}">Société d'Assurance</a> </li>
                       <li><a href="{{ path('kiosk_index') }}">Kiosques</a> </li>
                       <li><a href="{{ path('mechanic_index') }}">Mécancien</a> </li>
                       <li><a href="{{ path('partnercategory_index') }}">Categorie Partenaire</a> </li>
-                      <li><a href="{{path('brand_index')}}">Marques</a></li>
-                      <li><a href="{{path('model_index')}}">Modeles</a></li>
-                      <li><a href="{{path('family_index')}}">Famille equipement</a></li>
-                      <li><a href="{{path('subfamily_index')}}">Sous Famille equipement</a></li>
+                      <li><a href="{{path('brand_index')}}">Marque</a></li>
+                      <li><a href="{{path('model_index')}}">Modèle</a></li>
+                      <li><a href="{{path('family_index')}}">Famille équipement</a></li>
+                      <li><a href="{{path('subfamily_index')}}">Sous Famille équipement</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-user-secret"></i> Utilisateurs</a></li>

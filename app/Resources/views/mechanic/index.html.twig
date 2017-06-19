@@ -27,9 +27,9 @@
                             <tbody>
                             {% for mechanic in mechanics %}
                                 <tr>
-                                    <td>{{ mechanic.name }}</td>
+                                    <td><a href="{{ path('mechanic_index') }}">{{ mechanic.firstname }}</a></td>
                                     <td>{{ mechanic.lastname }}</td>
-                                    <td>{{ mechanic.address }}</td>
+                                    <td>{{ mechanic.phone }}</td>
                                     <td>{{ mechanic.address }}</td>
                                     <td>
                                         <div class="btn-group">

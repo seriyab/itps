@@ -2,9 +2,12 @@
 
 namespace ProjectBundle\Controller;
 
+use PurchaseBundle\Entity\OrderLine;
 use PurchaseBundle\Entity\Product;
 use ProjectBundle\Entity\Project;
+use PurchaseBundle\Entity\PurchaseOrder;
 use PurchaseBundle\Form\ProductType;
+use PurchaseBundle\Form\PurchaseOrderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -36,7 +39,7 @@ class ProjectController extends Controller
     public function newAction(Request $request)
     {
         $project = new Project();
-        $form = $this->createForm('PurchaseBundle\Form\ProjectType', $project);
+        $form = $this->createForm('ProjectBundle\Form\ProjectType', $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,20 +63,20 @@ class ProjectController extends Controller
     public function showAction(Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
-        $materialOfConstructionObject = new Product();
-        $materialOfConstructionObject->setProject($project);
-        $materialsOfConstructionForm = $this->createForm(ProductType::class, $materialOfConstructionObject);
+        $purchaseOrder = new PurchaseOrder();
+        $purchaseOrder->setProject($project);
+        $purchaseOrderForm = $this->createForm(PurchaseOrderType::class, $purchaseOrder);
 
         $em = $this->getDoctrine()->getManager();
-        $materialsOfConstructions = $em->getRepository('PurchaseBundle:Product')->findBy(
+        $projectOrders = $em->getRepository('PurchaseBundle:PurchaseOrder')->findBy(
             array('project' => $project->getId()), array('id' => 'DESC'), 10
         );
 
         return $this->render('project/show.html.twig', array(
             'project' => $project,
             'delete_form' => $deleteForm->createView(),
-            'materialsOfConstructions' => $materialsOfConstructions,
-            'materialsOfConstructionForm' => $materialsOfConstructionForm->createView()
+            'orders' => $projectOrders,
+            'purchaseOrderForm' => $purchaseOrderForm->createView()
         ));
     }
 

@@ -21,7 +21,7 @@ class ClockingController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $clockings = $em->getRepository('StaffBundle:Clocking')->findAll();
+        $clockings = $em->getRepository('StaffBundle:Clocking')->findByCriteria(array());
 
         return $this->render('clocking/index.html.twig', array(
             'clockings' => $clockings,

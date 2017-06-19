@@ -1,43 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Orderlines list</h1>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('project_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Chantiers en cours</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Commande</th>
+                                <th>Produit</th>
+                                <th>Quantity</th>
+                                <th>Prix</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for orderLine in orderLines %}
+                                <tr>
+                                    <td>
+                                        {{ orderLine.id }}
+                                    </td>
+                                    <td>{{ orderLine.purchaseOrder.reference }}</td>
+                                    <td>{{ orderLine.product }}</td>
+                                    <td>{{ orderLine.quantity }}</td>
+                                    <td>{{ orderLine.taxe }}</td>
+                                    <td>
+                                        <a href="{{ path('orderline_show', { 'id': orderLine.id }) }}" class="btn btn-sm btn-info" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ path('orderline_edit', { 'id': orderLine.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Quantity</th>
-                <th>Taxe</th>
-                <th>Label</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for orderLine in orderLines %}
-            <tr>
-                <td><a href="{{ path('orderline_show', { 'id': orderLine.id }) }}">{{ orderLine.id }}</a></td>
-                <td>{{ orderLine.quantity }}</td>
-                <td>{{ orderLine.taxe }}</td>
-                <td>{{ orderLine.label }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('orderline_show', { 'id': orderLine.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('orderline_edit', { 'id': orderLine.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('orderline_new') }}">Create a new orderLine</a>
-        </li>
-    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

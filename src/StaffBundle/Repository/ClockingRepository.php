@@ -2,6 +2,8 @@
 
 namespace StaffBundle\Repository;
 
+use StaffBundle\Entity\Clocking;
+
 /**
  * ClockingRepository
  *
@@ -10,4 +12,15 @@ namespace StaffBundle\Repository;
  */
 class ClockingRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findByCriteria($criteria)
+    {
+        $qb = $this->createQueryBuilder('cl');
+        $qb
+            ->select('cl.date')
+            ->orderBy('cl.date', 'DESC')
+            ->groupBy('cl.date');
+
+        return $qb->getQuery()->getResult();
+    }
 }

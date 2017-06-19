@@ -1,41 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Clockings list</h1>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('clocking_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Pointage</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Comment</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for clocking in clockings %}
+                                <tr>
+                                    <td>{% if clocking.date %}<a href="{{ path('clocking_show', { 'id': clocking.id }) }}">{{ clocking.date|date('Y-m-d H:i:s') }}</a>{% endif %}</td>
+                                    <td>{{ clocking.comment }}</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('clocking_show', { 'id': clocking.id }) }}">show</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('clocking_edit', { 'id': clocking.id }) }}">edit</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    {{ clocking.date }}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Comment</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for clocking in clockings %}
-            <tr>
-                <td><a href="{{ path('clocking_show', { 'id': clocking.id }) }}">{{ clocking.id }}</a></td>
-                <td>{% if clocking.date %}{{ clocking.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ clocking.comment }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('clocking_show', { 'id': clocking.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('clocking_edit', { 'id': clocking.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('clocking_new') }}">Create a new clocking</a>
-        </li>
-    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

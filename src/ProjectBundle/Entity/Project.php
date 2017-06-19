@@ -39,7 +39,7 @@ class Project
     /**
      * @var float
      *
-     * @ORM\Column(name="duration", type="string", nullable=true, length=10))
+     * @ORM\Column(name="duration", type="smallint", nullable=true, length=10))
      */
     private $duration;
 

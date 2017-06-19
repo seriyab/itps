@@ -4,6 +4,7 @@ namespace StaffBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,9 @@ class ClockingType extends AbstractType
         $builder
             ->add('date')
             ->add('comment')
-            ->add('personal')
+            ->add('personal', TextType::class , array(
+                'disabled' => true
+            ))
             ->add('location')
             ->add('constructionSite')
             ->add('status', ChoiceType::class, array(

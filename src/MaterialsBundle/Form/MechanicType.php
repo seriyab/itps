@@ -13,7 +13,7 @@ class MechanicType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('lastname')->add('phone')->add('address');
+        $builder->add('firstname')->add('lastname')->add('phone')->add('address');
     }
     
     /**

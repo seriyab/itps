@@ -1,5 +1,20 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- iCheck -->
+    <link href="{{ asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+{% endblock %}
+{% form_theme purchaseOrderForm _self %}
+
+{% block radio_widget %}
+    {% spaceless %}
+        <label>
+            <input type="radio" class="flat" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        </label>
+    {% endspaceless %}
+{% endblock radio_widget %}
+
 {% block body %}
     <div class="page-title">
         <div class="title_left">
@@ -426,7 +441,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Matériaux de construction</h2>
+                            <h2>Commandes</h2>
                             <div class="nav navbar-right panel_toolbox">
                                 <!-- Large modal -->
                                 <a href="{{ path('product_list_project', {'id': project.id} ) }}" class="btn btn-default">Liste</a>
@@ -439,52 +454,72 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Ajouter une commande</h4>
                                             </div>
-                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
+                                            {{ form_start(purchaseOrderForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
                                             <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        {{ form_widget(purchaseOrderForm.status, {'attr': {'class': 'radio text-center'}} ) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Réference <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(purchaseOrderForm.reference, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Type <span class="required">*</span>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Acheteur
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.type, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.buyer, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantité <span class="required">*</span>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.quantity, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prix <span class="required">*</span>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Date de livraison
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.price, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.deliverydate, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Emplacement
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.location, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
-                                                {{ form_rest(materialsOfConstructionForm) }}
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Devise
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(purchaseOrderForm.currency, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                    </div>
+                                                </div>
+
+                                                {{ form_rest(purchaseOrderForm._token) }}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
                                             </div>
-                                            {{ form_end(materialsOfConstructionForm) }}
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -497,17 +532,19 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>Type</th>
-                                        <th>Quantité</th>
-                                        <th>Prix</th>
+                                        <th>Réference</th>
+                                        <th>Fournisseur</th>
+                                        <th>Acheteur</th>
+                                        <th>Montant TTC</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for materialOfConstruction in materialsOfConstructions %}
+                                    {% for order in orders %}
                                     <tr>
-                                        <td>{{ materialOfConstruction.type }}</td>
-                                        <td>{{ materialOfConstruction.quantity }}</td>
-                                        <td>{{ materialOfConstruction.price }}</td>
+                                        <td>{{ order.reference }}</td>
+                                        <td>{{ order.supplier}}</td>
+                                        <td>{{ order.buyer }}</td>
+                                        <td></td>
                                     </tr>
                                     {% endfor %}
                                     </tbody>
@@ -536,50 +573,50 @@
                                                 </button>
                                                 <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
                                             </div>
-                                            {{ form_start(materialsOfConstructionForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
+                                            {{ form_start(purchaseOrderForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Type <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.type, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantité <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.quantity, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.buyer, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prix <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.price, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.reference, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(materialsOfConstructionForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                                                        {{ form_widget(purchaseOrderForm.currency, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
                                                     </div>
                                                 </div>
-                                                {{ form_rest(materialsOfConstructionForm) }}
+                                                {{ form_rest(purchaseOrderForm) }}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
                                             </div>
-                                            {{ form_end(materialsOfConstructionForm) }}
+                                            {{ form_end(purchaseOrderForm) }}
                                         </div>
                                     </div>
                                 </div>
@@ -590,9 +627,9 @@
 
                             <div class="">
                                 <table>
-                                    {% for materialOfConstruction in materialsOfConstructions %}
+                                    {% for order in orders %}
                                         <tr>
-                                            <td>{{ materialOfConstruction.type }}</td>
+                                            <td>{{ order.reference }}</td>
                                         </tr>
                                     {% endfor %}
                                 </table>
@@ -607,3 +644,9 @@
     </div>
     <!-- /page content -->
 {%endblock%}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- iCheck -->
+    <script src="{{ asset('vendors/iCheck/icheck.min.js') }}"></script>
+{% endblock %}

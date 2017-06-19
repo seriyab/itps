@@ -5,6 +5,7 @@ namespace PurchaseBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,11 +20,31 @@ class PurchaseOrderType extends AbstractType
             ->add('reference')
             ->add('buyer')
             ->add('supplier')
-            ->add('deliverydate')
-            ->add('location')
-            ->add('status')
+            ->add('deliverydate', DateType::class, array (
+                'html5' => true,
+                'widget' => 'single_text'
+            ))
+            ->add('location', ChoiceType::class, array (
+                'choices' => array(
+                    'Chantier' => 'Chantier',
+                    'Lotissement' => 'Lotissement',
+                    'Bureau' => 'Bureau'
+                ),
+                'data' => 'Chantier'
+            ))
+            ->add('status', ChoiceType::class, array(
+                'choices' => array (
+                    'Demandé' => 'Demandé',
+                    'Validé'  => 'Validé',
+                    'Terminé' => 'Terminé',
+                    'Annulé' => 'Annulé'
+                ),
+                'expanded' => true,
+                'multiple' => false,
+            ))
+            ->add('project')
             ->add('currency', ChoiceType::class, array(
-                'choices' => array('TND' => 'tnd', 'EURO' => 'Euro'),
+                'choices' => array ('TND' => 'tnd', 'EURO' => 'Euro'),
             ))
             ->add('orderLines', CollectionType::class, array(
                 'entry_type' => OrderLineType::class,

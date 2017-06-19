@@ -27,9 +27,18 @@ class EmploymentContractType extends AbstractType
             ))
             ->add('personal')
             ->add('function')
-            ->add('startDate', DateType::class)
-            ->add('endDate', DateType::class)
-            ->add('signatureDate', DateType::class)
+            ->add('startDate', DateType::class, array(
+                'widget' => 'single_text',
+                'html5'  => true
+            ))
+            ->add('endDate', DateType::class, array(
+                'widget' => 'single_text',
+                'html5'  => true
+            ))
+            ->add('signatureDate', DateType::class,  array(
+                'widget' => 'single_text',
+                'html5'  => true
+            ))
             ->add('salary', IntegerType::class);
     }
     

@@ -3,6 +3,7 @@
 namespace PurchaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ProjectBundle\Entity\Project;
 
 /**
  * PurchaseOrder
@@ -79,6 +80,12 @@ class PurchaseOrder
      */
     private $orderLines;
 
+    /**
+     * @var Project
+     *
+     * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project")
+     */
+    private $project;
 
     /**
      * Get id
@@ -271,6 +278,26 @@ class PurchaseOrder
     public function removeOrderLine(OrderLine $orderLine)
     {
         $this->orderLines->removeElement($orderLine);
+    }
+
+    /**
+     * @return Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     *
+     * @return PurchaseOrder
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
+
+        return $this;
     }
 
     public function __toString()

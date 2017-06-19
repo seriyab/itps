@@ -1,103 +1,113 @@
 {% extends 'base.html.twig' %}
 
 {% set prototype_orderLine = form.orderLines.vars.prototype %}
+{% form_theme form _self %}
+
+{% block radio_widget %}
+    {% spaceless %}
+        <label>
+            <input type="radio"
+                   class="flat" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        </label>
+    {% endspaceless %}
+{% endblock radio_widget %}
 
 {% block body %}
-<div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Nouvelle Commande</h3>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Nouvelle Commande</h3>
+            </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
-    <div id="prototype-tome" class="prototype-tome hide">
-        <section class="form-group">
-            {{ form_widget(prototype_orderLine) }}
-        </section>
-    </div>
-    {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask', 'novalidate':''}}) }}
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Info. général</h2>
-                    <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div id="prototype-tome" class="prototype-tome hide">
+            <section class="form-group">
+                {{ form_widget(prototype_orderLine) }}
+            </section>
+        </div>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask', 'novalidate':''}}) }}
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. général</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label">Etat</label>
+                                {{ form_widget(form.status, {'attr': {'class': 'radio text-center'}}) }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Référence</label>
+                                {{ form_widget(form.reference, {'attr': {'class': 'form-control', 'placeholder': 'Référence'}}) }}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Devise</label>
+                                {{ form_widget(form.currency, {'attr': {'class': 'form-control', 'placeholder': 'Devise'}}) }}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Acheteur</label>
+                                {{ form_widget(form.buyer, {'attr': {'class': 'form-control', 'placeholder': 'Achereur'}}) }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="x_content">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                            <label class="control-label">Référence</label>
-                            {{ form_widget(form.reference, {'attr': {'class': 'form-control', 'placeholder': 'Référence'}}) }}
-                        </div>
 
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. Fournisseur</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                            <label class="control-label">Devise</label>
-                            {{ form_widget(form.currency, {'attr': {'class': 'form-control', 'placeholder': 'Devise'}}) }}
+                            <label class="control-label">Fournisseur</label>
+                            {{ form_widget(form.supplier, {'attr': {'class': 'form-control', 'placeholder': 'Fournisseur'}}) }}
                         </div>
+                    </div>
+                </div>
 
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. Livraison</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                            <label class="control-label">Acheteur</label>
-                            {{ form_widget(form.buyer, {'attr': {'class': 'form-control', 'placeholder': 'Achereur'}}) }}
+                            <label class="control-label">Date de livraison</label>
+                            {{ form_widget(form.deliverydate, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Emplacement</label>
+                            {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Chantier</label>
+                            {{ form_widget(form.project, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Info. Fournisseur</h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                        <label class="control-label">Fournisseur</label>
-                        {{ form_widget(form.supplier, {'attr': {'class': 'form-control', 'placeholder': 'Fournisseur'}}) }}
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title" id="container-tome">
+                        <h2>Ajouter les produits</h2>
+                        <div class="clearfix"></div>
                     </div>
-                </div>
-            </div>
-
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Info. Livraison</h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                        <label class="control-label">Entrepôt</label>
-                        {{ form_widget(form.deliverydate, {'attr': {'class': 'form-control', 'placeholder': 'Fournisseur'}}) }}
-                    </div>
-                </div>
-            </div>
-
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Ajouter les produits</h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                    <div class="x_content">
                         <a href="#" id="add-tome" class="btn btn-success">Ajouter un produit</a>
                     </div>
                 </div>
             </div>
+            {{ form_widget(form._token) }}
+            <input type="submit" class="btn btn-success">
         </div>
-
-        <div class="col-md-6 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title" id="container-tome">
-                    <h2>Ajouter les produits</h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <br />
-                </div>
-            </div>
-        </div>
-
-         <input type="submit" class="btn btn-success">
+        </form>
     </div>
-{{ form_end(form) }}
-</div>
 {% endblock %}
 
 
@@ -106,9 +116,9 @@
     <!-- Switchery -->
     <script src="{{ asset('vendors/switchery/dist/switchery.min.js') }}"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             //Attention à bien vérifier que vos selecteurs correspondent à votre code
-            $('#add-tome').on('click', function(event){
+            $('#add-tome').on('click', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -118,7 +128,7 @@
                 var $linkDelete = $('<div><a href="#" class="btn btn-danger delete-tome">Supprimer</a></div>');
                 $prototypeTome.append($linkDelete);
 
-                $linkDelete.on('click', function(e){
+                $linkDelete.on('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
 

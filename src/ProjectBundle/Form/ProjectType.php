@@ -27,7 +27,7 @@ class ProjectType extends AbstractType
             ->add('city')
             ->add('address')
             ->add('budget')
-            ->add('duration', NumberType::class)
+            ->add('duration')
             ->add('type')
             ->add('status', ChoiceType::class, array(
                 'choices' => array('En cours' => 'En cours', 'Terminé' => 'Terminé', 'Annulé' => 'Annulé')
