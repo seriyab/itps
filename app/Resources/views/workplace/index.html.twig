@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('workplace_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Lieu de travail</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Fonction</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for workplace in workplaces %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('workplace_show', { 'id': workplace.id }) }}">{{ workplace.id }}</a>
+                                    </td>
+                                    <td>{{ workplace.name }}</td>
+                                    <td>
+                                        <a href="{{ path('workplace_show', { 'id': workplace.id }) }}" class="btn btn-sm btn-info" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
+
+                                        <a href="{{ path('workplace_edit', { 'id': workplace.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

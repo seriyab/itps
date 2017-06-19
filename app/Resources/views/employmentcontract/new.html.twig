@@ -1,16 +1,69 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Employmentcontract creation</h1>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Nouveau contrat de travail</h3>
+            </div>
+            <div class="title_right"></div>
+        </div>
+        <div class="clearfix"></div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. général</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Type</label>
+                                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('employmentcontract_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Personel</label>
+                                {{ form_widget(form.personal, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Fonction</label>
+                                {{ form_widget(form.function, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Salaire</label>
+                                {{ form_widget(form.salary, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Date de signature</label>
+                                {{ form_widget(form.signatureDate, {'attr': {'class': 'form-control', 'data-inputmask': "'mask': '99/99/9999'"}}) }}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Date de début</label>
+                                {{ form_widget(form.startDate, {'attr': {'class': 'form-control', 'data-inputmask': "'mask': '99/99/9999'"}}) }}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Date de fin</label>
+                                {{ form_widget(form.endDate, {'attr': {'class': 'form-control', 'data-inputmask': "'mask': '99/99/9999'"}}) }}
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class=" pull-right">
+                                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

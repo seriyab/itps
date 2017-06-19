@@ -16,11 +16,7 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div id="prototype-tome" class="prototype-tome hide">
-            <section class="form-group">
-                {{ form_widget(prototype_contract) }}
-            </section>
-        </div>
+
         {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
         <div class="row">
             <div class="col-md-6 col-xs-12">
@@ -93,35 +89,65 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
+                        <h2>Lieu de travail & Tarif journalier</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Lieu de travail</label>
+                            {{ form_widget(form.workplace, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Tarifs journalier</label>
+                            {{ form_widget(form.dailyRate, {'attr': {'class': 'form-control', 'placeholder': 'Tarif journalier'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_title" id="container-tome">
                         <h2>Ajouter un contrat de travail</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                            <a href="#" id="add-tome" class="btn btn-success">Ajouter un contrat de travail</a>
+                            <label class="control-label">Type de contrat</label>
+                            {{ form_widget(prototype_contract.type, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Fonction</label>
+                            {{ form_widget(prototype_contract.function, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Date de signature</label>
+                            {{ form_widget(prototype_contract.signatureDate, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Date de début</label>
+                            {{ form_widget(prototype_contract.startDate, {'attr': {'class': 'form-control', 'placeholder': 'Date de début'}}) }}
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Date de fin</label>
+                            {{ form_widget(prototype_contract.endDate, {'attr': {'class': 'form-control', 'data-inputmask': "'mask': '99/99/9999'"}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Salaire</label>
+                            {{ form_widget(prototype_contract.salary, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title" id="container-tome">
-                        <h2>Ajouter un contrat</h2>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br />
-                    </div>
-                </div>
+                {{ form_widget(form._token) }}
+                <input type="submit" class="btn btn-primary" value="Enregistrer">
             </div>
-
-            <input type="submit" class="btn btn-success">
         </div>
-        {{ form_end(form) }}
+        </form>
     </div>
 {% endblock %}
 

@@ -1,0 +1,24 @@
+clocking_index:
+    path:     /
+    defaults: { _controller: "StaffBundle:Clocking:index" }
+    methods:  GET
+
+clocking_show:
+    path:     /{id}/show
+    defaults: { _controller: "StaffBundle:Clocking:show" }
+    methods:  GET
+
+clocking_new:
+    path:     /new
+    defaults: { _controller: "StaffBundle:Clocking:new" }
+    methods:  [GET, POST]
+
+clocking_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "StaffBundle:Clocking:edit" }
+    methods:  [GET, POST]
+
+clocking_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "StaffBundle:Clocking:delete" }
+    methods:  DELETE

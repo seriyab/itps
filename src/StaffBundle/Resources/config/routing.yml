@@ -5,3 +5,15 @@ staff_personal:
 staff_employmentcontract:
     resource: "@StaffBundle/Resources/config/routing/employmentcontract.yml"
     prefix:   /employmentcontract
+
+staff_employmentfunction:
+    resource: "@StaffBundle/Resources/config/routing/employmentfunction.yml"
+    prefix:   /employmentfunction
+
+staff_workplace:
+    resource: "@StaffBundle/Resources/config/routing/workplace.yml"
+    prefix:   /workplace
+
+staff_clocking:
+    resource: "@StaffBundle/Resources/config/routing/clocking.yml"
+    prefix:   /clocking

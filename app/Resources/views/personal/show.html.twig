@@ -1,72 +1,77 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Personal</h1>
+    <div class="">
+        <a href="{{ path('personal_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i>
+            Retour</a>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ personal.id }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ personal.firstname }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ personal.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Birthdate</th>
-                <td>{% if personal.Birthdate %}{{ personal.Birthdate|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ personal.phone }}</td>
-            </tr>
-            <tr>
-                <th>Mobile</th>
-                <td>{{ personal.mobile }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ personal.mail }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ personal.address }}</td>
-            </tr>
-            <tr>
-                <th>Zipcode</th>
-                <td>{{ personal.zipcode }}</td>
-            </tr>
-            <tr>
-                <th>Martialstatus</th>
-                <td>{{ personal.martialStatus }}</td>
-            </tr>
-            <tr>
-                <th>Drivinglicense</th>
-                <td>{{ personal.drivingLicense }}</td>
-            </tr>
-            <tr>
-                <th>Istemporary</th>
-                <td>{% if personal.isTemporary %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="clearfix"></div>
+        <div class="separator"></div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Fiche "{{ personal.firstname }} {{ personal.lastname }}"</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ personal.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prénom</th>
+                                <td>{{ personal.firstname }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ personal.lastname }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de naissance</th>
+                                <td>{% if personal.Birthdate %}{{ personal.Birthdate|date('Y-m-d') }}{% endif %}</td>
+                            </tr>
+                            <tr>
+                                <th>Téléphone</th>
+                                <td>{{ personal.phone }}</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile</th>
+                                <td>{{ personal.mobile }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ personal.mail }}</td>
+                            </tr>
+                            <tr>
+                                <th>Adresse</th>
+                                <td>{{ personal.address }}</td>
+                            </tr>
+                            <tr>
+                                <th>Etat civil</th>
+                                <td>{{ personal.martialStatus }}</td>
+                            </tr>
+                            <tr>
+                                <th>Permis de conduire</th>
+                                <td>{{ personal.drivingLicense }}</td>
+                            </tr>
+                            <tr>
+                                <th>Temporaire/Permanent</th>
+                                <td>{% if personal.isTemporary %}<span class="btn btn-info">Temporaire</span>{% else %}<span class="btn btn-default">Permanent</span>{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('personal_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('personal_edit', { 'id': personal.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                        <a href="{{ path('personal_edit', { 'id': personal.id }) }}" class="btn btn-primary">Modifier</a>
+
+                        {{ form_start(delete_form) }}
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

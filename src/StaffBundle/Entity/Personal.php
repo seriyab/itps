@@ -90,12 +90,26 @@ class Personal
      * @ORM\OneToMany(targetEntity="EmploymentContract", mappedBy="personal", cascade={"persist","remove"})
      */
     private $contracts;
+
+    /**
+     * @var Workplace
+     * @ORM\ManyToOne(targetEntity="Workplace")
+     */
+    private $workplace;
+
     /**
      * @var int
      *
      * @ORM\Column(name="is_temporary", type="boolean")
      */
     private $isTemporary;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="daily_rate", type="float", nullable=true)
+     */
+    private $dailyRate;
 
 
     /**
@@ -348,6 +362,42 @@ class Personal
     public function removeContract(EmploymentContract $contract)
     {
         $this->contracts->removeElement($contract);
+    }
+
+    /**
+     * @return int
+     */
+    public function getDailyRate()
+    {
+        return $this->dailyRate;
+    }
+
+    /**
+     * @param int $dailyRate
+     * @return Personal
+     */
+    public function setDailyRate($dailyRate)
+    {
+        $this->dailyRate = $dailyRate;
+        return $this;
+    }
+
+    /**
+     * @return Workplace
+     */
+    public function getWorkplace()
+    {
+        return $this->workplace;
+    }
+
+    /**
+     * @param Workplace $workplace
+     * @return Personal
+     */
+    public function setWorkplace($workplace)
+    {
+        $this->workplace = $workplace;
+        return $this;
     }
 }
 

@@ -1,51 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Employmentcontracts list</h1>
+    <div class="">
+        <div class="actionBar">
+            <a href="{{ path('employmentcontract_new') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Les Personnelles</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Personal</th>
+                                <th>Type</th>
+                                <th>Function</th>
+                                <th>Date début</th>
+                                <th>Date fin</th>
+                                <th>Salaire</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for employmentContract in employmentContracts %}
+                                <tr>
+                                    <td><a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}">{{ employmentContract.personal }}</a></td>
+                                    <td>{{ employmentContract.type }}</td>
+                                    <td>{{ employmentContract.function }}</td>
+                                    <td>{% if employmentContract.startDate %}{{ employmentContract.startDate|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{% if employmentContract.endDate %}{{ employmentContract.endDate|date('Y-m-d') }}{% endif %}</td>
+                                    <td>{{ employmentContract.salary }}</td>
+                                    <td>
+                                        <a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}" class="btn btn-sm btn-info" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Type</th>
-                <th>Personal</th>
-                <th>Function</th>
-                <th>Startdate</th>
-                <th>Enddate</th>
-                <th>Signaturedate</th>
-                <th>Salary</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for employmentContract in employmentContracts %}
-            <tr>
-                <td><a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}">{{ employmentContract.id }}</a></td>
-                <td>{{ employmentContract.type }}</td>
-                <td>{{ employmentContract.personal }}</td>
-                <td>{{ employmentContract.function }}</td>
-                <td>{% if employmentContract.startDate %}{{ employmentContract.startDate|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if employmentContract.endDate %}{{ employmentContract.endDate|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if employmentContract.signatureDate %}{{ employmentContract.signatureDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ employmentContract.salary }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('employmentcontract_show', { 'id': employmentContract.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('employmentcontract_edit', { 'id': employmentContract.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                                        <a href="{{ path('employmentcontract_edit', { 'id': employmentContract.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
 
-    <ul>
-        <li>
-            <a href="{{ path('employmentcontract_new') }}">Create a new employmentContract</a>
-        </li>
-    </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

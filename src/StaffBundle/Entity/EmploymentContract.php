@@ -39,7 +39,8 @@ class EmploymentContract
     /**
      * @var string
      *
-     * @ORM\Column(name="function", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="EmploymentFunction")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $function;
 
