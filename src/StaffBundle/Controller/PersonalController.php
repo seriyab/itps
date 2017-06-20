@@ -121,4 +121,53 @@ class PersonalController extends Controller
             ->getForm()
         ;
     }
+
+    public function reportAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $personals = $em->getRepository(Personal::class)->findAll();
+        $permanent = $em->getRepository(Personal::class)->findBy(array('isTemporary' => false));
+        $temporary = $em->getRepository(Personal::class)->findBy(array('isTemporary' => true));
+        $functions = $em->getRepository(Personal::class)->countByFunction();
+
+
+        return $this->render('personal/report.html.twig', array(
+            'personals' => $personals,
+            'permanent' => $permanent,
+            'temporary' => $temporary,
+            'functions' => $functions,
+            'total'     => count($personals),
+            'functionReport' => $this->getFunctionsReport($functions, count($personals))
+        ));
+    }
+
+    private function getFunctionsReport($functions, $total)
+    {
+        $result = array();
+        $backgroundColor = [
+        "#BDC3C7",
+        "#9B59B6",
+        "#E74C3C",
+        "#26B99A",
+        "#3498DB"
+        ];
+
+        $hoverBackgroundColor = [
+        "#CFD4D8",
+        "#B370CF",
+        "#E95E4F",
+        "#36CAAB",
+        "#49A9EA"
+        ];
+
+        foreach ($functions as $key => $function)
+        {
+            $result['data'][] = round($function['total'] * $total) / 100;
+            $result['labels'][] = $function['name'];
+            $result['backgroundColor'][] = $backgroundColor[$key];
+            $result['hoverBackgroundColor'][] = $hoverBackgroundColor[$key];
+        }
+
+        return $result;
+    }
 }

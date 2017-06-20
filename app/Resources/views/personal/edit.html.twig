@@ -80,12 +80,16 @@
                     </div>
                     <div class="x_content">
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Fonction</label>
+                            {{ form_widget(form.function, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                             <label class="control-label">Permis de conduire</label>
-                            {{ form_widget(edit_form.drivingLicense, {'attr': {'class': 'form-control', 'placeholder': 'Permis de conduire'}}) }}
+                            {{ form_widget(edit_form.drivingLicense, {'attr': {'class': 'form-control'}}) }}
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                             <label class="control-label">Etat civil</label>
-                            {{ form_widget(edit_form.martialStatus, {'attr': {'class': 'form-control', 'placeholder': 'Etat civil'}}) }}
+                            {{ form_widget(edit_form.martialStatus, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
                 </div>

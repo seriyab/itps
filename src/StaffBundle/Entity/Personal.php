@@ -111,6 +111,13 @@ class Personal
      */
     private $dailyRate;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="EmploymentFunction")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $function;
 
     /**
      * Get id
@@ -397,6 +404,24 @@ class Personal
     public function setWorkplace($workplace)
     {
         $this->workplace = $workplace;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFunction()
+    {
+        return $this->function;
+    }
+
+    /**
+     * @param string $function
+     * @return Personal
+     */
+    public function setFunction($function)
+    {
+        $this->function = $function;
         return $this;
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace StaffBundle\Repository;
+use StaffBundle\Entity\EmploymentFunction;
+use StaffBundle\Entity\Personal;
 
 /**
  * PersonalRepository
@@ -10,4 +12,16 @@ namespace StaffBundle\Repository;
  */
 class PersonalRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    public function countByFunction()
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb
+            ->select('f.name, count(p.id) as total')
+            ->leftJoin('p.function', 'f')
+            ->groupBy('f.name')
+            ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -62,6 +62,7 @@ class PersonalType extends AbstractType
             ))
             ->add('dailyRate')
             ->add('workplace')
+            ->add('function')
         ;
     }
     
