@@ -1,80 +1,84 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipment</h1>
+    <div class="">
+        <a href="{{ path('equipment_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i>
+            Retour</a>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ equipment.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ equipment.name }}</td>
-            </tr>
-            <tr>
-                <th>Family</th>
-                <td>{{ equipment.family }}</td>
-            </tr>
-            <tr>
-                <th>Subfamily</th>
-                <td>{{ equipment.subFamily }}</td>
-            </tr>
-            <tr>
-                <th>Registrationnumber</th>
-                <td>{{ equipment.registrationNumber }}</td>
-            </tr>
-            <tr>
-                <th>Dateofcirculation</th>
-                <td>{{ equipment.dateOfCirculation }}</td>
-            </tr>
-            <tr>
-                <th>Numberofplaces</th>
-                <td>{{ equipment.numberOfPlaces }}</td>
-            </tr>
-            <tr>
-                <th>Bodywork</th>
-                <td>{{ equipment.bodywork }}</td>
-            </tr>
-            <tr>
-                <th>Energy</th>
-                <td>{{ equipment.energy }}</td>
-            </tr>
-            <tr>
-                <th>Fiscalpower</th>
-                <td>{{ equipment.fiscalPower }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ equipment.status }}</td>
-            </tr>
-            <tr>
-                <th>Greycarte</th>
-                <td>{% if equipment.greyCarte %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Brand</th>
-                <td>{{ equipment.brand }}</td>
-            </tr>
-            <tr>
-                <th>Model</th>
-                <td>{{ equipment.model }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="clearfix"></div>
+        <div class="separator"></div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Equipement "{{ equipment.name }}"</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ equipment.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Désignation</th>
+                                <td>{{ equipment.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Marque</th>
+                                <td>{{ equipment.brand }}</td>
+                            </tr>
+                            <tr>
+                                <th>Modèle</th>
+                                <td>{{ equipment.model }}</td>
+                            </tr>
+                            <tr>
+                                <th>Famille équipment</th>
+                                <td>{{ equipment.family }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sous famille équiepement</th>
+                                <td>{{ equipment.subFamily }}</td>
+                            </tr>
+                            <tr>
+                                <th>Matricule</th>
+                                <td>{{ equipment.registrationNumber }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de mise en circulation</th>
+                                <td>{{ equipment.dateOfCirculation | date('d/m/Y')}}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre des siéges</th>
+                                <td>{{ equipment.numberOfPlaces }}</td>
+                            </tr>
+                            <tr>
+                                <th>Cylindre</th>
+                                <td>{{ equipment.bodywork }}</td>
+                            </tr>
+                            <tr>
+                                <th>Energie</th>
+                                <td>{{ equipment.energy }}</td>
+                            </tr>
+                            <tr>
+                                <th>Puissance fiscale</th>
+                                <td>{{ equipment.fiscalPower }}</td>
+                            </tr>
+                            <tr>
+                                <th>Etat</th>
+                                <td>{{ equipment.status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Carte grise</th>
+                                <td>{% if equipment.greyCarte %}Yes{% else %}No{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('equipment_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('equipment_edit', { 'id': equipment.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

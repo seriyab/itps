@@ -4,6 +4,7 @@ namespace MaterialsBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,14 +19,23 @@ class EquipmentType extends AbstractType
             ->add('family')
             ->add('subFamily')
             ->add('registrationNumber')
-            ->add('dateOfCirculation')
+            ->add('dateOfCirculation', DateType::class, array(
+                'html5' => true,
+                'widget' => 'single_text'
+            ))
             ->add('numberOfPlaces')
             ->add('bodywork')
             ->add('energy', ChoiceType::class, array(
                 'choices' => array('Diesel' => 'Diesel', 'Essence' => 'Essence', 'Hybride' => 'Hybride', 'Electrique - GPL - Autres' => 'Electrique - GPL - Autres')
             ))
             ->add('fiscalPower')
-            ->add('status')
+            ->add('status', ChoiceType::class, array(
+                'choices' => array(
+                    'En circualation' => 'En circualation',
+                    'En arrêt' => 'En arrêt',
+                    'En panne' => 'En panne'
+                )
+            ))
             ->add('greyCarte')
             ->add('brand')
             ->add('model')
