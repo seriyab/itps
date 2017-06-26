@@ -1,52 +1,142 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
-    <h1>Purchaseorder</h1>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Commande {{ purchaseOrder.reference }}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ purchaseOrder.id }}</td>
-            </tr>
-            <tr>
-                <th>Reference</th>
-                <td>{{ purchaseOrder.reference }}</td>
-            </tr>
-            <tr>
-                <th>Buyer</th>
-                <td>{{ purchaseOrder.buyer }}</td>
-            </tr>
-            <tr>
-                <th>Supplier</th>
-                <td>{{ purchaseOrder.supplier }}</td>
-            </tr>
-            <tr>
-                <th>Deliverydate</th>
-                <td>{% if purchaseOrder.deliverydate %}{{ purchaseOrder.deliverydate|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Location</th>
-                <td>{{ purchaseOrder.location }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ purchaseOrder.status }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. général</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label">Etat:</label>
+                                {{ purchaseOrder.status }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Référence:</label>
+                                {{ purchaseOrder.reference }}
+                            </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('purchaseorder_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('purchaseorder_edit', { 'id': purchaseOrder.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Devise:</label>
+                                {{ purchaseOrder.currency }}
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Acheteur:</label>
+                                {{ purchaseOrder.buyer }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. Fournisseur</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Fournisseur:</label>
+                            {{ purchaseOrder.supplier }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Info. Livraison</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Date de livraison:</label>
+                            {{ purchaseOrder.deliverydate | date('d/m/Y') }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Emplacement:</label>
+                            {{ purchaseOrder.location }}
+                        </div>
+                        {% if purchaseOrder.project is not empty %}
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Chantier:</label>
+                                {{ purchaseOrder.project }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Produits commandé</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="container-order-line">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Quantité</th>
+                                <th>Prix unitaire</th>
+                                <th>Prix total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for orderLine in purchaseOrder.orderLines %}
+                                <tr>
+                                    <td>{{ orderLine.product }}</td>
+                                    <td>{{ orderLine.quantity }}</td>
+                                    <td>{{ orderLine.unitPrice }}</td>
+                                    <td>{{ orderLine.totalPrice }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2><strong>Montant total</strong></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="container-order-line">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Total (HT)</strong></td>
+                                    <td><strong>5454 TND</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total (TTC)</strong></td>
+                                    <td><strong>87878 TND</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 actionBar">
+                <a href="{{ path('purchaseorder_edit', {'id': purchaseOrder.id}) }}" class="btn btn-primary pull-left">Modifier</a>
+                {{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-sm btn-danger inline pull-right" data-placement="top" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash"></i> Supprimer</button>
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

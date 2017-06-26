@@ -16,7 +16,6 @@ class ClockingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
             ->add('comment')
             ->add('personal', TextType::class , array(
                 'disabled' => true

@@ -38,19 +38,18 @@ class ClockingController extends Controller
         $personals = $em->getRepository(Personal::class)->findAll();
         foreach ($personals as $personal) {
             $clocking = new Clocking();
-            $clocking->setDate(new \DateTime('now'));
             $clocking->setPersonal($personal);
             $clocking->setLocation($personal->getWorkplace());
             $clocking->setStatus('Présent');
             $clockings[] = $clocking;
         }
 
-
         $form = $this->createForm('StaffBundle\Form\ClockingPersonalsType', ['clocking' =>  $clockings]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($clockings as $clocking) {
+                $clocking->setDate($form->getData()['date']);
                 $em->persist($clocking);
                 $em->flush();
             }
@@ -59,7 +58,6 @@ class ClockingController extends Controller
         }
 
         return $this->render('clocking/new.html.twig', array(
-
             'form' => $form->createView(),
             'personals' => $personals
         ));

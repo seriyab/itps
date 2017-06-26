@@ -27,34 +27,12 @@
     <!-- top tiles -->
     <div class="row tile_count">
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Jours travaillés</span>
-            <div class="count">2500</div>
-            <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+            <span class="count_top"><i class="fa fa-clock-o"></i> Jours travaillés</span>
+            <div class="count">{{ personalsCosts.totalWorkedDays }} jour(s)</div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-            <div class="count">123.50</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-            <div class="count green">2,500</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-            <div class="count">4,567</div>
-            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-            <div class="count">2,315</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-            <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-            <div class="count">7,325</div>
-            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+            <span class="count_top"><i class="fa fa-dollar"></i> Coût ressources humaines</span>
+            <div class="count green">{{ personalsCosts.totalCost }} TND</div>
         </div>
     </div>
     <!-- /top tiles -->
@@ -65,7 +43,7 @@
 
                 <div class="row x_title">
                     <div class="col-md-6">
-                        <h3>Network Activities <small>Graph title sub-title</small></h3>
+                        <h3>Activité <small>Graph avancement de projet</small></h3>
                     </div>
                     <div class="col-md-6">
                         <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -134,93 +112,28 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                    <h2>Matériaux</h2>
+                    <h2>Quantité utilisé par produit</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <h4>Utilisation des matériaux</h4>
+                    {% for productQuantity in productsQuntity %}
                     <div class="widget_summary">
                         <div class="w_left w_25">
-                            <span>0.1.5.2</span>
+                            <span>{{ productQuantity.name }}</span>
                         </div>
                         <div class="w_center w_55">
                             <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                                    <span class="sr-only">60% Complete</span>
+                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ productQuantity.quantity / 1000}}" aria-valuemin="0" aria-valuemax="10000" style="width: {{ productQuantity.quantity / 1000}}%;">
+                                    <span class="sr-only">{{ productQuantity.quantity / 1000}} % Complete</span>
                                 </div>
                             </div>
                         </div>
                         <div class="w_right w_20">
-                            <span>123k</span>
+                            <span>{{ productQuantity.quantity }} {{ productQuantity.unitOfMeasurement }}</span>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-
-                    <div class="widget_summary">
-                        <div class="w_left w_25">
-                            <span>0.1.5.3</span>
-                        </div>
-                        <div class="w_center w_55">
-                            <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                                    <span class="sr-only">60% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w_right w_20">
-                            <span>53k</span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="widget_summary">
-                        <div class="w_left w_25">
-                            <span>0.1.5.4</span>
-                        </div>
-                        <div class="w_center w_55">
-                            <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                                    <span class="sr-only">60% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w_right w_20">
-                            <span>23k</span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="widget_summary">
-                        <div class="w_left w_25">
-                            <span>0.1.5.5</span>
-                        </div>
-                        <div class="w_center w_55">
-                            <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
-                                    <span class="sr-only">60% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w_right w_20">
-                            <span>3k</span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="widget_summary">
-                        <div class="w_left w_25">
-                            <span>0.1.5.6</span>
-                        </div>
-                        <div class="w_center w_55">
-                            <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                                    <span class="sr-only">60% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w_right w_20">
-                            <span>1k</span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -350,22 +263,9 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Recent Activities <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
+                    <h2>Actvités récentes</h2>
+                    <div class="nav navbar-right panel_toolbox">
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -527,9 +427,8 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-
                             <div class="">
-                                <table class="table">
+                                <table class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th>Réference</th>
@@ -544,7 +443,7 @@
                                         <td>{{ order.reference }}</td>
                                         <td>{{ order.supplier}}</td>
                                         <td>{{ order.buyer }}</td>
-                                        <td></td>
+                                        <td>{{ order.getTotalTtc }}</td>
                                     </tr>
                                     {% endfor %}
                                     </tbody>
@@ -555,90 +454,40 @@
                 </div>
                 <!-- End to construction materials -->
 
-                <!-- start of weather widget -->
+                <!-- start of personal widget -->
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Matériels de chantiers</h2>
+                            <h2>Ressources humaines assignés</h2>
                             <div class="nav navbar-right panel_toolbox">
                                 <a href="{{ path('equipment_index') }}" class="btn btn-default">Liste</a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-materials">Ajouter</button>
-
-                                <div class="modal fade add-materials" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                                                </button>
-                                                <h4 class="modal-title" id="myModalLabel">Ajouter un materiel de construction</h4>
-                                            </div>
-                                            {{ form_start(purchaseOrderForm, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':'', 'action': path('product_new', {'project': project.id}) }}) }}
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Chantier <span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(purchaseOrderForm.project, {'attr': {'class': 'form-control col-md-7 col-xs-12', 'readonly':''}} ) }}
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Type <span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(purchaseOrderForm.supplier, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantité <span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(purchaseOrderForm.buyer, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Prix <span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(purchaseOrderForm.reference, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fournisseur
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        {{ form_widget(purchaseOrderForm.currency, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
-                                                    </div>
-                                                </div>
-                                                {{ form_rest(purchaseOrderForm) }}
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                            </div>
-                                            {{ form_end(purchaseOrderForm) }}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-
                             <div class="">
-                                <table>
-                                    {% for order in orders %}
+                                <table class="table-bordered table">
+                                    <thead>
                                         <tr>
-                                            <td>{{ order.reference }}</td>
+                                            <th>Nom</th>
+                                            <th>Jour de travail</th>
+                                            <th>Frais jouranlier</th>
+                                        </tr>
+                                    </thead>
+                                    {% for personal in personals %}
+                                        <tr>
+                                            <td>{{ personal.personal.firstname }} {{ personal.personal.lastname }}</td>
+                                            <td>{{ personal.date | date('d/m/Y') }}</td>
+                                            <td>{{ personal.personal.dailyRate }}</td>
                                         </tr>
                                     {% endfor %}
                                 </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- end of weather widget -->
+                <!-- end of personal widget -->
             </div>
         </div>
     </div>

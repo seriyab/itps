@@ -3,6 +3,7 @@
 namespace PurchaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use ProjectBundle\Entity\Project;
 
 /**
@@ -86,6 +87,22 @@ class PurchaseOrder
      * @ORM\ManyToOne(targetEntity="ProjectBundle\Entity\Project")
      */
     private $project;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -300,9 +317,67 @@ class PurchaseOrder
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param string $createdAt
+     *
+     * @return PurchaseOrder
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param string $updatedAt
+     *
+     * @return PurchaseOrder
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->getReference();
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalTtc()
+    {
+        $total = 0;
+        if (!empty($this->getOrderLines())) {
+            foreach ($this->orderLines as $orderLine) {
+                if ($orderLine->getTotalPrice() > 0)
+                {
+                    $total += $orderLine->getTotalPrice();
+                }
+            }
+        }
+
+        return $total;
     }
 }
 

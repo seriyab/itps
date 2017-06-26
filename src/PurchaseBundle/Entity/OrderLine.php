@@ -3,6 +3,7 @@
 namespace PurchaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * OrderLine
@@ -47,17 +48,39 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\Column(name="taxe", type="string", length=20, nullable=true)
+     * @ORM\Column(name="label", type="string", length=20, nullable=true)
      */
-    private $taxe;
+    private $label;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=255, nullable=true)
+     * @ORM\Column(name="unit_price", type="float", nullable=true)
      */
-    private $label;
+    private $unitPrice;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="total_price", type="float", nullable=true)
+     */
+    private $totalPrice;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -142,27 +165,49 @@ class OrderLine
     }
 
     /**
-     * Set taxe
-     *
-     * @param string $taxe
+     * @return string
+     */
+    public function getUnitPrice()
+    {
+        return (float)$this->unitPrice;
+    }
+
+    /**
+     * @param string $unitPrice
      *
      * @return OrderLine
      */
-    public function setTaxe($taxe)
+    public function setUnitPrice($unitPrice)
     {
-        $this->taxe = $taxe;
+        $this->unitPrice = $unitPrice;
 
         return $this;
     }
 
     /**
-     * Get taxe
-     *
      * @return string
      */
-    public function getTaxe()
+    public function getTotalPrice()
     {
-        return $this->taxe;
+        if ($this->totalPrice > 0) {
+            return (float)$this->totalPrice;
+        } else {
+            return (float)($this->quantity * $this->unitPrice);
+        }
+    }
+
+    /**
+     * @param string $totalPrice
+     *
+     * @return OrderLine
+     */
+    public function setTotalPrice($totalPrice)
+    {
+        if ($totalPrice > 0) {
+            $this->totalPrice = $totalPrice;
+        } elseif ($this->unitPrice > 0) {
+            $this->totalPrice = $this->quantity * $this->unitPrice;
+        }
     }
 
     /**
@@ -187,6 +232,46 @@ class OrderLine
     public function getLabel()
     {
         return $this->label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param string $createdAt
+     *
+     * @return OrderLine
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param string $updatedAt
+     *
+     * @return OrderLine
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }
 

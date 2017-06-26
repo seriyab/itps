@@ -13,7 +13,7 @@ use StaffBundle\Entity\Clocking;
 class ClockingRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function findByCriteria($criteria)
+    public function findByCriteria()
     {
         $qb = $this->createQueryBuilder('cl');
         $qb
@@ -22,5 +22,17 @@ class ClockingRepository extends \Doctrine\ORM\EntityRepository
             ->groupBy('cl.date');
 
         return $qb->getQuery()->getResult();
+    }
+
+    public function getCostByProject($project)
+    {
+        $qb = $this->createQueryBuilder('cl');
+        $qb
+            ->select('count(cl.id) as totalWorkedDays, SUM(p.dailyRate) as totalCost')
+            ->leftJoin('cl.personal', 'p')
+            ->where('cl.constructionSite = :project')
+            ->setParameter('project', $project);
+
+        return $qb->getQuery()->getSingleResult();
     }
 }

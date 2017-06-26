@@ -15,11 +15,10 @@
         <div class="col-md-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Pointage de <strong>{{ "now"|date("d/m/Y") }}</strong></h2>
+                    <h2>Pointage de {{ form_widget(form.date) }}</strong></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    {{ form_start(form) }}
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -60,5 +59,6 @@
             </div>
         </div>
     </div>
+    </form>
 </div>
 {% endblock %}

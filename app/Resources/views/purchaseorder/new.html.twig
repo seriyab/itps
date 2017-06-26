@@ -20,11 +20,26 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div id="prototype-tome" class="prototype-tome hide">
-            <section class="form-group">
-                {{ form_widget(prototype_orderLine) }}
-            </section>
+        <div id="prototype-order-line" class="hide">
+            <div class="form-inline separator">
+                <div class="form-group">
+                    {{ form_widget(prototype_orderLine.product, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(prototype_orderLine.label, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(prototype_orderLine.quantity, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(prototype_orderLine.unitPrice, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(prototype_orderLine.totalPrice, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
         </div>
+
         {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left input_mask', 'novalidate':''}}) }}
         <div class="row">
             <div class="col-md-6 col-xs-12">
@@ -94,17 +109,19 @@
 
             <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
-                    <div class="x_title" id="container-tome">
+                    <div class="x_title">
                         <h2>Ajouter les produits</h2>
+                        <a href="#" id="add-order-line" class="btn btn-info pull-right">Ajouter un produit</a>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="x_content">
-                        <a href="#" id="add-tome" class="btn btn-success">Ajouter un produit</a>
+                    <div class="x_content" id="container-order-line">
                     </div>
                 </div>
             </div>
             {{ form_widget(form._token) }}
-            <input type="submit" class="btn btn-success">
+            <div class="col-md-12 actionBar">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Enregistrer</button>
+            </div>
         </div>
         </form>
     </div>
@@ -117,26 +134,46 @@
     <script src="{{ asset('vendors/switchery/dist/switchery.min.js') }}"></script>
     <script>
         $(document).ready(function () {
-            //Attention à bien vérifier que vos selecteurs correspondent à votre code
-            $('#add-tome').on('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
+            var $container = $('#prototype-order-line');
+            var index = $('#prototype-order-line').length - 1 ;
 
-                var $prototypeTome = $('#prototype-tome').clone();
-                $prototypeTome = $($prototypeTome.html().replace(/__name__/g, $('.prototype-tome').length));
+            $('#add-order-line').click(function(e) {
+                addOrderLine($container);
 
-                var $linkDelete = $('<div><a href="#" class="btn btn-danger delete-tome">Supprimer</a></div>');
-                $prototypeTome.append($linkDelete);
-
-                $linkDelete.on('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    $prototypeTome.remove();
-                });
-
-                $('#container-tome').prepend($prototypeTome);
+                e.preventDefault();
+                return false;
             });
+
+            if (index == 0) {
+                addOrderLine($container);
+            } else {
+                $container.children('.form-inline').each(function() {
+                    addDeleteLink($(this));
+                });
+            }
+
+            function addOrderLine($container) {
+
+                var template = $container.html().replace(/__name__/g, index);
+                var $prototype = $(template);
+
+                addDeleteLink($prototype);
+                $('#container-order-line').append($prototype);
+
+                index++;
+            }
+
+            function addDeleteLink($prototype) {
+                var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+                $prototype.append($deleteLink);
+
+                $deleteLink.click(function(e) {
+                    $prototype.remove();
+
+                    e.preventDefault();
+                    return false;
+                });
+            }
         });
     </script>
 {% endblock %}

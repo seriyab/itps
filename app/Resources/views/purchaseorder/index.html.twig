@@ -23,6 +23,7 @@
                                 <th>Emplacement</th>
                                 <th>Chantier</th>
                                 <th>Etat</th>
+                                <th>Total TTC</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                     <td>{{ purchaseOrder.location }}</td>
                                     <td>{{ purchaseOrder.project }}</td>
                                     <td>{{ purchaseOrder.status }}</td>
+                                    <td>{{ purchaseOrder.getTotalTtc }}</td>
                                     <td>
                                         <a href="{{ path('purchaseorder_show', { 'id': purchaseOrder.id }) }}" class="btn btn-sm btn-info" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>
                                         <a href="{{ path('purchaseorder_edit', { 'id': purchaseOrder.id }) }}" class="btn btn-sm btn-warning" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>

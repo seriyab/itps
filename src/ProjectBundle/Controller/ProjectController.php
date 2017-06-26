@@ -8,6 +8,7 @@ use ProjectBundle\Entity\Project;
 use PurchaseBundle\Entity\PurchaseOrder;
 use PurchaseBundle\Form\ProductType;
 use PurchaseBundle\Form\PurchaseOrderType;
+use StaffBundle\Entity\Clocking;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -68,15 +69,25 @@ class ProjectController extends Controller
         $purchaseOrderForm = $this->createForm(PurchaseOrderType::class, $purchaseOrder);
 
         $em = $this->getDoctrine()->getManager();
+        $productsQuantity = $em->getRepository(PurchaseOrder::class)->getQuantityByProduct($project->getId());
+
+        $personals = $em->getRepository(Clocking::class)->findBy(array('constructionSite' => $project->getId()),
+            array('date' => 'DESC'));
+
         $projectOrders = $em->getRepository('PurchaseBundle:PurchaseOrder')->findBy(
             array('project' => $project->getId()), array('id' => 'DESC'), 10
         );
+
+        $personalsCost = $em->getRepository(Clocking::class)->getCostByProject($project->getId());
 
         return $this->render('project/show.html.twig', array(
             'project' => $project,
             'delete_form' => $deleteForm->createView(),
             'orders' => $projectOrders,
-            'purchaseOrderForm' => $purchaseOrderForm->createView()
+            'purchaseOrderForm' => $purchaseOrderForm->createView(),
+            'personals' => $personals,
+            'productsQuntity' => $productsQuantity,
+            'personalsCosts'  => $personalsCost
         ));
     }
 

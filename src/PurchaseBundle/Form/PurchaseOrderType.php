@@ -41,6 +41,7 @@ class PurchaseOrderType extends AbstractType
                 ),
                 'expanded' => true,
                 'multiple' => false,
+                'data' => 'Demandé'
             ))
             ->add('project')
             ->add('currency', ChoiceType::class, array(

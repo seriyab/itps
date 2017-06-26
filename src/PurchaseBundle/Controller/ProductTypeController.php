@@ -72,7 +72,7 @@ class ProductTypeController extends Controller
     public function editAction(Request $request, ProductType $productType)
     {
         $deleteForm = $this->createDeleteForm($productType);
-        $editForm = $this->createForm('ProjectBundle\Form\ProductTypeType', $productType);
+        $editForm = $this->createForm('PurchaseBundle\Form\ProductTypeType', $productType);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
