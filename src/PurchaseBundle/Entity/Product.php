@@ -31,13 +31,6 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255)
-     */
-    private $category;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
@@ -45,16 +38,23 @@ class Product
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price_min", type="float", nullable=true)
      */
-    private $price;
+    private $priceMin;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="quantity", type="float")
+     * @ORM\Column(name="price_max", type="float", nullable=true)
      */
-    private $quantity;
+    private $priceMax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unitOfMeasurement", type="string", length=10, nullable=true)
+     */
+    private $unitOfMeasurement;
 
     /**
      * Get id
@@ -91,68 +91,6 @@ class Product
     }
 
     /**
-     * Set quantity
-     *
-     * @param float $quantity
-     *
-     * @return MaterialsOfConstruction
-     */
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * Get quantity
-     *
-     * @return float
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param float $price
-     * @return MaterialsOfConstruction
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param string $category
-     *
-     * @return Product
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getName()
@@ -168,6 +106,66 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPriceMin()
+    {
+        return $this->priceMin;
+    }
+
+    /**
+     * @param float $priceMin
+     *
+     * @return Product
+     */
+    public function setPriceMin($priceMin)
+    {
+        $this->priceMin = $priceMin;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPriceMax()
+    {
+        return $this->priceMax;
+    }
+
+    /**
+     * @param float $priceMax
+     *
+     * @return Product
+     */
+    public function setPriceMax($priceMax)
+    {
+        $this->priceMax = $priceMax;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUnitOfMeasurement()
+    {
+        return $this->unitOfMeasurement;
+    }
+
+    /**
+     * @param string $unitOfMeasurement
+     *
+     * @return Product
+     */
+    public function setUnitOfMeasurement($unitOfMeasurement)
+    {
+        $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;
     }

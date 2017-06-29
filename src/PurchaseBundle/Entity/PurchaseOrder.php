@@ -56,7 +56,7 @@ class PurchaseOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="warehouse", type="string", length=255)
      */
     private $location;
 

@@ -18,17 +18,23 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('type', EntityType::class, array(
-                'class' =>BaseProductType::class
-            ))
-            ->add('category', ChoiceType::class, array(
+            ->add('type', ChoiceType::class, array(
                 'choices' => array(
                     'Fourniture bureau' => 'Fourniture bureau',
                     'Matériaux de construction' => 'Matériaux de construction',
                     'Piéces mécaniques' => 'Piéces mécaniques'
                     )
             ))
-            ->add('price');
+            ->add('priceMin')
+            ->add('priceMax')
+            ->add('unitOfMeasurement', ChoiceType::class, array(
+                'choices' => array(
+                    'Kg' => 'Kg',
+                    'Litre' => 'Litre',
+                    'm3' => 'm3',
+                    'm2' => 'm2',
+                )
+            ));
     }
     
     /**

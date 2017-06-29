@@ -31,9 +31,9 @@ class OrderLine
     private $purchaseOrder;
 
     /**
-     * @var string
+     * @var Product
      *
-     * @ORM\ManyToOne(targetEntity="ProductType")
+     * @ORM\ManyToOne(targetEntity="Product")
      * @Orm\JoinColumn(nullable=false)
      */
     private $product;
