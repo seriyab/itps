@@ -345,8 +345,10 @@
                             <div class="nav navbar-right panel_toolbox">
                                 <!-- Large modal -->
                                 <a href="{{ path('product_list_project', {'id': project.id} ) }}" class="btn btn-default">Liste</a>
+                                {#
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-materials-of-construction">Ajouter</button>
-
+                                 #}
+                                <a href="{{ path('purchaseorder_new') }}" class="btn btn-primary">Nouvelle commande</a>
                                 <div class="modal fade add-materials-of-construction" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">

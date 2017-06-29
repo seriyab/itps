@@ -34,7 +34,7 @@ class ProjectType extends AbstractType
                     'Aménagements urbains' => 'Aménagements urbains',
                     'Pont' => 'Pont',
                     'Tunnel' => 'Tunnel',
-                    'Routes,' => 'Routes',
+                    'Routes' => 'Routes',
                     'Autoroutes' => 'Autoroutes',
                     'Gazoducs' => 'Gazoducs',
                     'Oléoducs' => 'Oléoducs',
