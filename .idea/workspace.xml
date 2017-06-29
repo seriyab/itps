@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd51201-bdfd-4e24-bec6-4eef7e8fc8d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/project/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/project/show.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig" />
     </list>
     <ignored path="itps.iws" />
@@ -63,8 +62,8 @@
       <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="95" column="109" lean-forward="false" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
+            <state relative-caret-position="702">
+              <caret line="42" column="91" lean-forward="false" selection-start-line="42" selection-start-column="91" selection-end-line="42" selection-end-column="91" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -777,12 +776,12 @@
       <workItem from="1497864491921" duration="17631000" />
       <workItem from="1498462701242" duration="23198000" />
       <workItem from="1498649270786" duration="629000" />
-      <workItem from="1498740679648" duration="6054000" />
+      <workItem from="1498740679648" duration="6114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136819000" />
+    <option name="totallyTimeSpent" value="136879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
@@ -1233,8 +1232,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="95" column="109" lean-forward="false" selection-start-line="95" selection-start-column="109" selection-end-line="95" selection-end-column="109" />
+        <state relative-caret-position="702">
+          <caret line="42" column="91" lean-forward="false" selection-start-line="42" selection-start-column="91" selection-end-line="42" selection-end-column="91" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
