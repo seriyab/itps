@@ -25,7 +25,7 @@
                             <tbody>
                             {% for clocking in clockings %}
                                 <tr>
-                                    <td>{% if clocking.date %}<a href="{{ path('clocking_show', { 'id': clocking.id }) }}">{{ clocking.date|date('Y-m-d H:i:s') }}</a>{% endif %}</td>
+                                    <td>{% if clocking.date %}<a href="{{ path('clocking_show', { 'id': clocking.id }) }}">{{ clocking.date|date('Y-m-d') }}</a>{% endif %}</td>
                                     <td>{{ clocking.comment }}</td>
                                     <td>
                                         <ul>
@@ -37,7 +37,6 @@
                                             </li>
                                         </ul>
                                     </td>
-                                    {{ clocking.date }}
                                 </tr>
                             {% endfor %}
                             </tbody>

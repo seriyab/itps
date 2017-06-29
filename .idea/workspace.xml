@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd51201-bdfd-4e24-bec6-4eef7e8fc8d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/clocking/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/clocking/index.html.twig" />
     </list>
     <ignored path="itps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,16 +37,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/product/edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="48" column="52" lean-forward="false" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/project/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +49,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="702">
               <caret line="42" column="91" lean-forward="false" selection-start-line="42" selection-start-column="91" selection-end-line="42" selection-end-column="91" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/clocking/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -190,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MaterialsBundle/Form/MechanicType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/mechanic/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/mechanic/new.html.twig" />
         <option value="$PROJECT_DIR$/src/MaterialsBundle/Entity/SubFamily.php" />
@@ -241,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/ProjectBundle/Controller/ProjectController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/project/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/purchaseorder/new.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/clocking/index.html.twig" />
       </list>
     </option>
   </component>
@@ -644,7 +646,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="brand" />
+              <option name="myItemId" value="clocking" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -776,12 +778,12 @@
       <workItem from="1497864491921" duration="17631000" />
       <workItem from="1498462701242" duration="23198000" />
       <workItem from="1498649270786" duration="629000" />
-      <workItem from="1498740679648" duration="6114000" />
+      <workItem from="1498740679648" duration="6328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136879000" />
+    <option name="totallyTimeSpent" value="137093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
@@ -818,13 +820,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Repository/ProjectRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Repository/PurchaseOrderRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1234,6 +1229,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="42" column="91" lean-forward="false" selection-start-line="42" selection-start-column="91" selection-end-line="42" selection-end-column="91" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/clocking/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
