@@ -30,6 +30,7 @@ class ProjectController extends Controller
 
         return $this->render('project/index.html.twig', array(
             'projects' => $projects,
+            'status'   => 'En cours'
         ));
     }
 
@@ -46,6 +47,7 @@ class ProjectController extends Controller
 
         return $this->render('project/index.html.twig', array(
             'projects' => $projects,
+            'status'   => 'Terminés'
         ));
     }
 
@@ -62,6 +64,7 @@ class ProjectController extends Controller
 
         return $this->render('project/index.html.twig', array(
             'projects' => $projects,
+            'status'   => 'Annulés'
         ));
     }
 
