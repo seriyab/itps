@@ -26,7 +26,39 @@ class ProjectController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $projects = $em->getRepository('ProjectBundle:Project')->findAll();
+        $projects = $em->getRepository('ProjectBundle:Project')->findBy(array('status' => 'En cours'));;
+
+        return $this->render('project/index.html.twig', array(
+            'projects' => $projects,
+        ));
+    }
+
+
+    /**
+     * Lists all finalised project entities.
+     *
+     */
+    public function finalisedProjectAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $projects = $em->getRepository('ProjectBundle:Project')->findBy(array('status' => 'Terminé'));
+
+        return $this->render('project/index.html.twig', array(
+            'projects' => $projects,
+        ));
+    }
+
+
+    /**
+     * Lists all finalised project entities.
+     *
+     */
+    public function canceledProjectAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $projects = $em->getRepository('ProjectBundle:Project')->findBy(array('status' => 'Annulé'));
 
         return $this->render('project/index.html.twig', array(
             'projects' => $projects,

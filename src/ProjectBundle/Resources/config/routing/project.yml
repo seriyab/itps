@@ -3,6 +3,16 @@ project_index:
     defaults: { _controller: "ProjectBundle:Project:index" }
     methods:  GET
 
+project_finalised:
+    path:     /termine
+    defaults: { _controller: "ProjectBundle:Project:finalisedProject" }
+    methods:  GET
+
+project_canceled:
+    path:     /annule
+    defaults: { _controller: "ProjectBundle:Project:canceledProject" }
+    methods:  GET
+
 project_show:
     path:     /{id}/show
     defaults: { _controller: "ProjectBundle:Project:show" }
