@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd51201-bdfd-4e24-bec6-4eef7e8fc8d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/product/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/product/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/product/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/product/edit.html.twig" />
     </list>
     <ignored path="itps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,15 +65,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/product/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="45" column="113" lean-forward="false" selection-start-line="45" selection-start-column="113" selection-end-line="45" selection-end-column="113" />
+            <state relative-caret-position="108">
+              <caret line="27" column="92" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
                 <element signature="e#71#84#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/product/edit.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-108">
+              <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,7 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/StaffBundle/Form/EmploymentContractType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/employmentcontract/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/employmentcontract/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/kiosk/index.html.twig" />
@@ -201,6 +209,7 @@
         <option value="$PROJECT_DIR$/src/ProjectBundle/Form/ProjectType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/project/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/product/new.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/product/edit.html.twig" />
       </list>
     </option>
   </component>
@@ -540,12 +549,12 @@
       <workItem from="1497864491921" duration="17631000" />
       <workItem from="1498462701242" duration="23198000" />
       <workItem from="1498649270786" duration="629000" />
-      <workItem from="1498740679648" duration="3422000" />
+      <workItem from="1498740679648" duration="3552000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134187000" />
+    <option name="totallyTimeSpent" value="134317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
@@ -582,13 +591,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/StaffBundle/Form/ClockingPersonalsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/project/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -965,12 +967,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/product/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="45" column="113" lean-forward="false" selection-start-line="45" selection-start-column="113" selection-end-line="45" selection-end-column="113" />
+        <state relative-caret-position="108">
+          <caret line="27" column="92" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
             <element signature="e#71#84#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/product/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
