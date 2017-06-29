@@ -623,7 +623,7 @@ if (typeof NProgress != 'undefined') {
 		console.log('init_JQVmap');
 	     
 			if ($('#world-map-gdp').length ){
-		 
+
 				$('#world-map-gdp').vectorMap({
 					map: 'world_en',
 					backgroundColor: null,
@@ -636,7 +636,7 @@ if (typeof NProgress != 'undefined') {
 					scaleColors: ['#E6F2F0', '#149B7E'],
 					normalizeFunction: 'polynomial'
 				});
-			
+
 			}
 			
 			if ($('#usa_map').length ){
