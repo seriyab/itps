@@ -98,7 +98,7 @@ class ProjectController extends Controller
     public function editAction(Request $request, Project $project)
     {
         $deleteForm = $this->createDeleteForm($project);
-        $editForm = $this->createForm('PurchaseBundle\Form\ProjectType', $project);
+        $editForm = $this->createForm('ProjectBundle\Form\ProjectType', $project);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
