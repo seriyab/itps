@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Materialsofconstruction</h1>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -18,22 +18,26 @@
                 <td>{{ materialsOfConstruction.type }}</td>
             </tr>
             <tr>
-                <th>Quantity</th>
-                <td>{{ materialsOfConstruction.quantity }}</td>
+                <th>Prix min</th>
+                <td>{{ materialsOfConstruction.priceMin }}</td>
+            </tr>
+            <tr>
+                <th>Prix Max</th>
+                <td>{{ materialsOfConstruction.priceMax }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('product_index') }}">Back to the list</a>
+            <a href="{{ path('product_index') }}" class="btn btn-info">Retour</a>
         </li>
         <li>
-            <a href="{{ path('product_edit', { 'id': materialsOfConstruction.id }) }}">Edit</a>
+            <a href="{{ path('product_edit', { 'id': materialsOfConstruction.id }) }}" class="btn btn-info">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
             {{ form_end(delete_form) }}
         </li>
     </ul>
