@@ -28,7 +28,17 @@ class ProjectType extends AbstractType
             ->add('address')
             ->add('budget')
             ->add('duration')
-            ->add('type')
+            ->add('type', ChoiceType::class, array(
+                'choices' => array(
+                    'Bâtiment' => 'Bâtiment ',
+                    'Aménagements urbains' => 'Aménagements urbains',
+                    'Pont' => 'Pont',
+                    'Tunnel' => 'Tunnel',
+                    'Routes,' => 'Routes',
+                    'Autoroutes' => 'Autoroutes',
+                    'Gazoducs' => 'Gazoducs',
+                    'Oléoducs' => 'Oléoducs',
+                )))
             ->add('status', ChoiceType::class, array(
                 'choices' => array('En cours' => 'En cours', 'Terminé' => 'Terminé', 'Annulé' => 'Annulé')
             ));
