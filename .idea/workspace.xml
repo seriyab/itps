@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dd51201-bdfd-4e24-bec6-4eef7e8fc8d9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Controller/ProductTypeController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Entity/ProductType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Form/ProductTypeType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Resources/config/routing/producttype.yml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" afterPath="$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Entity/OrderLine.php" afterPath="$PROJECT_DIR$/src/PurchaseBundle/Entity/OrderLine.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/PurchaseBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Entity/PurchaseOrder.php" afterPath="$PROJECT_DIR$/src/PurchaseBundle/Entity/PurchaseOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/PurchaseBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PurchaseBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/PurchaseBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
     </list>
     <ignored path="itps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,26 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Workplace.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/StaffBundle/Entity/Workplace.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderLine.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/OrderLine.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="33" column="19" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PartnerCategory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/PartnerCategory.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/Product.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3078">
-              <caret line="171" column="0" lean-forward="true" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+              <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -79,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/PurchaseOrder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-108">
-              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,41 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Caution.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Caution.php">
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="504">
+              <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Client.php">
+      <file leaf-file-name="composer.lock" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.lock">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-432">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Journey.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Journey.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="26" column="68" lean-forward="false" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Project.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="296">
+              <caret line="2280" column="21" lean-forward="false" selection-start-line="2280" selection-start-column="21" selection-end-line="2280" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -139,9 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stock</find>
-      <find>typeofconstructionmaterials</find>
-      <find>typeofconstructionmaterials_index</find>
       <find>ProjectBundle</find>
       <find>sous</find>
       <find>bank</find>
@@ -169,6 +114,9 @@
       <find>dail</find>
       <find>produc</find>
       <find>workp</find>
+      <find>h4cc</find>
+      <find>stof</find>
+      <find>snapp</find>
     </findStrings>
     <replaceStrings>
       <replace>Product</replace>
@@ -197,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/MaterialsBundle/Entity/SubFamily.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/mechanic/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/equipment/new.html.twig" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/PurchaseBundle/Form/OrderLineType.php" />
         <option value="$PROJECT_DIR$/src/PurchaseBundle/Form/PurchaseOrderType.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
@@ -235,6 +182,7 @@
         <option value="$PROJECT_DIR$/src/StaffBundle/Entity/EmploymentContract.php" />
         <option value="$PROJECT_DIR$/src/MaterialsBundle/Entity/Equipment.php" />
         <option value="$PROJECT_DIR$/src/StaffBundle/Entity/Clocking.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -576,12 +524,12 @@
       <workItem from="1497864491921" duration="17631000" />
       <workItem from="1498462701242" duration="23198000" />
       <workItem from="1498649270786" duration="629000" />
-      <workItem from="1498740679648" duration="138000" />
+      <workItem from="1498740679648" duration="871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130903000" />
+    <option name="totallyTimeSpent" value="131636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
@@ -618,20 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/purchaseorder/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="132" column="63" lean-forward="false" selection-start-line="132" selection-start-column="63" selection-end-line="132" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/StaffBundle/Form/ClockingType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/StaffBundle/Controller/ClockingController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -944,7 +878,7 @@
     <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3078">
-          <caret line="171" column="0" lean-forward="true" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <caret line="171" column="0" lean-forward="false" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -952,15 +886,7 @@
     <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/PurchaseOrder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-108">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/Supplier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1404">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -973,10 +899,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Client.php">
+    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="522">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -989,10 +915,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Project.php">
+    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Entity/Client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="-432">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PurchaseBundle/Entity/Supplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1404">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="2280" column="21" lean-forward="false" selection-start-line="2280" selection-start-column="21" selection-end-line="2280" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="37" column="41" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
           <folding />
         </state>
       </provider>
