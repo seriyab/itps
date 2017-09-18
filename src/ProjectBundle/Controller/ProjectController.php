@@ -93,7 +93,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Finds and displays a project entity.
+     * Show project details.
      *
      */
     public function showAction(Project $project)

@@ -8,10 +8,16 @@
     <input type="submit" value="Supprimer" class="btn btn-danger">
     {{ form_end(delete_form) }}
     <div class="clearfix"></div>
-
-    <div class="clearfix"></div>
     <div class="separator"></div>
     <div class="row">
+    <div class="col-md-12"> {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">

@@ -78,6 +78,7 @@ class BankController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('info', 'Mise à jour avec succès!');
             return $this->redirectToRoute('bank_edit', array('id' => $bank->getId()));
         }
 
