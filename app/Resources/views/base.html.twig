@@ -101,10 +101,11 @@
                       <li><a href="{{ path('personal_index') }}">Liste personnels</a></li>
                       <li><a href="{{ path('employmentcontract_index') }}">Contrat</a></li>
                       <li><a href="{{ path('clocking_index') }}">Pointage</a></li>
+                      <li><a href="{{path('leaveapplication_index') }}">Demande congé</a></li>
                       <li><a href="{{ path('personal_report') }}">Rapports</a></li>
                       {#<li><a href="typography.html">Frais personnels</a></li>
                       <li><a href="icons.html">Fiche de paie</a></li>
-                      <li><a href="glyphicons.html">Demande congé</a></li>
+                      
                       <li><a>Prêt <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                           <li><a href="fixed_sidebar.html">Demande de Prêt</a></li>
@@ -121,15 +122,18 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-car"></i> Equipements <span class="fa fa-chevron-down"></span></a>
+                  <li>
+                    <a><i class="fa fa-car"></i> Equipements <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{path('equipment_index')}}">Equipement</a></li>
-                      {#<li><a href="form_advanced.html">Vidanges</a></li>
-                      <li><a href="form_validation.html">Assurances</a></li>
-                      <li><a href="form_wizards.html">Taxes</a></li>
-                      <li><a href="form_upload.html">Bon Gazoil</a></li>
-                      <li><a href="form_buttons.html">Carte Gazoil</a></li>
-                      <li><a href="form_buttons.html">Contre Bon</a></li>#}
+                       <li><a>Configuration <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{path('equipment_index')}}">Equipement</a></li>
+                                <li><a href="{{path('brand_index')}}">Marque</a></li>
+                                <li><a href="{{path('model_index')}}">Modèle</a></li>
+                                <li><a href="{{path('family_index')}}">Famille équipement</a></li>
+                                <li><a href="{{path('subfamily_index')}}">Sous Famille équipement</a></li>
+                            </ul>
+                      </li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-cubes"></i>Stocks <span class="fa fa-chevron-down"></span></a>
@@ -147,15 +151,12 @@
                   <li><a><i class="fa fa-cogs"></i> Configuration <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{path('bank_index')}}">Banques</a></li>
+                      <li><a href="{{path('bankaccount_index')}}">Comptes bancaires</a></li>
                       <li><a href="{{path('leasing_index')}}">Leasing</a></li>
                       <li><a href="{{ path('insurancecompany_index') }}">Société d'Assurance</a> </li>
                       <li><a href="{{ path('kiosk_index') }}">Kiosques</a> </li>
                       <li><a href="{{ path('mechanic_index') }}">Mécancien</a> </li>
                       <li><a href="{{ path('partnercategory_index') }}">Categorie Partenaire</a> </li>
-                      <li><a href="{{path('brand_index')}}">Marque</a></li>
-                      <li><a href="{{path('model_index')}}">Modèle</a></li>
-                      <li><a href="{{path('family_index')}}">Famille équipement</a></li>
-                      <li><a href="{{path('subfamily_index')}}">Sous Famille équipement</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-user-secret"></i> Utilisateurs</a></li>

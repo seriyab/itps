@@ -17,3 +17,7 @@ staff_workplace:
 staff_clocking:
     resource: "@StaffBundle/Resources/config/routing/clocking.yml"
     prefix:   /clocking
+
+staff_leaveapplication:
+    resource: "@StaffBundle/Resources/config/routing/leaveapplication.yml"
+    prefix:   /leaveapplication

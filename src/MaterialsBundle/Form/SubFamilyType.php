@@ -13,7 +13,11 @@ class SubFamilyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('family');
+        $builder->add('name')
+                ->add('family')
+                ->add('tax')
+                ->add('insurance')
+                ->add('greyCard');
     }
     
     /**

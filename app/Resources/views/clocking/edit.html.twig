@@ -1,21 +1,68 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Clocking edit</h1>
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3></h3>
+        </div>
+        <div class="title_right"></div>
+    </div>
+    <div class="clearfix"></div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {{ form_start(edit_form, {'attr': {'class': 'form-horizontal form-label-left input_mask'}}) }}
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Modification Pointage de {{ form_widget(edit_form.date) }}</strong></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Personnel</th>
+                            <th>Statut</th>
+                            <th>Lieu de travail</th>
+                            <th>Chantier</th>
+                            <th>Heure d'arrivée</th>
+                            <th>Observation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for clocking in edit_form.clockingReports %}
+                            <tr>
+                                <td>
+                                    {{ form_widget(clocking.personal, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                                <td>
+                                    {{ form_widget(clocking.status, {'attr': {'class': 'form-control', 'disabled': true}}) }}
+                                </td>
 
-    <ul>
-        <li>
-            <a href="{{ path('clocking_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                <td>
+                                    {{ form_widget(clocking.location, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                                <td>
+                                    {{ form_widget(clocking.constructionSite, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                                <td>
+                                    {{ form_widget(clocking.arrival_time, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                                <td>
+                                    {{ form_widget(clocking.comment, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {{ form_widget(edit_form._token) }}
+                        </tbody>
+                    </table>
+                    
+                    <input type="submit" class="btn btn-primary pull-right" value="Enregistrer">
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
 {% endblock %}

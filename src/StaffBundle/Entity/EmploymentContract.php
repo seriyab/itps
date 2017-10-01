@@ -68,11 +68,17 @@ class EmploymentContract
     /**
      * @var float
      *
-     * @ORM\Column(name="salary", type="float")
+     * @ORM\Column(name="salary", type="float", nullable=true)
      */
     private $salary;
 
-
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="daily_rate", type="float", nullable=true)
+     */
+    private $dailyRate;
+    
     /**
      * Get id
      *
@@ -249,6 +255,24 @@ class EmploymentContract
     public function getSalary()
     {
         return $this->salary;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getDailyRate()
+    {
+        return $this->dailyRate;
+    }
+
+    /**
+     * @param int $dailyRate
+     * @return Personal
+     */
+    public function setDailyRate($dailyRate)
+    {
+        $this->dailyRate = $dailyRate;
+        return $this;
     }
 }
 

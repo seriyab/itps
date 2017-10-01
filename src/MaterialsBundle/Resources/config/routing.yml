@@ -41,3 +41,7 @@ materials_bank:
 materials_leasing:
     resource: "@MaterialsBundle/Resources/config/routing/leasing.yml"
     prefix:   /leasing
+
+materials_bankaccount:
+    resource: "@MaterialsBundle/Resources/config/routing/bankaccount.yml"
+    prefix:   /bankaccount

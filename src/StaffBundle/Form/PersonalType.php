@@ -34,11 +34,11 @@ class PersonalType extends AbstractType
             ->add('address')
             ->add('martialStatus', ChoiceType::class, array(
                 'choices' => array(
+                    'Rien' => 'rien',
                     'Célibataire' => 'Célibataire',
                     'Marié' => 'Marié',
                     'Fiancé' => 'Fiancé',
                     'Divorcé' => 'Divorcé',
-                    'Rien' => 'rien',
                 )
             ))
             ->add('drivingLicense', ChoiceType::class, array(
@@ -55,12 +55,15 @@ class PersonalType extends AbstractType
             ->add('isTemporary', CheckboxType::class, array(
                 'required' => false
             ))
+            ->add('status', CheckboxType::class, array(
+                'required' => false,
+                'data' => true
+            ))
             ->add('contracts', CollectionType::class, array(
                 'entry_type' => EmploymentContractType::class,
                 'allow_add' => true,
                 'allow_delete' => true
             ))
-            ->add('dailyRate')
             ->add('workplace')
             ->add('function')
         ;

@@ -18,6 +18,10 @@
                             <thead>
                             <tr>
                                 <th>Nom</th>
+                                <th>Famille</th>
+                                <th>Assurance</th>
+                                <th>Taxe</th>
+                                <th>Carte grise</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -25,6 +29,10 @@
                             {% for subFamily in subFamilies %}
                                 <tr>
                                     <td>{{ subFamily.name }}</td>
+                                    <td>{{ subFamily.family.name }}</td>
+                                    <td>{{ subFamily.insurance }}</td>
+                                    <td>{{ subFamily.tax }}</td>
+                                    <td>{{ subFamily.greyCard }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{ path('subfamily_show', { 'id': subFamily.id }) }}" class="btn btn-sm btn-success" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-eye"></i></a>

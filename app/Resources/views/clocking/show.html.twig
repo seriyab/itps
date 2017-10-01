@@ -1,36 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Clocking</h1>
+    <div class="">
+        <a href="{{ path('clocking_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i> Retour</a>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ clocking.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if clocking.date %}{{ clocking.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Comment</th>
-                <td>{{ clocking.comment }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="clearfix"></div>
+        <div class="separator"></div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Pointage le "{% if clocking.date %}{{ clocking.date|date('d-m-Y') }}{% endif %}"</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Personel</th>
+                                <th>Etat</th>
+                                <th>Lieu</th>
+                                <th>Heure d'arrivée</th>
+                                <th>Observation</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for report in clocking.clockingReports %}
+                                <tr>
+                                    <td>{{ report.personal }}</td>
+                                    <td>{{ report.status }}</td>
+                                    <td>{{ report.location }}</td>
+                                    <td>{{ report.arrivalTime | date('H:i') }}</td>
+                                    <td>{{ report.comment }}</td>
+                                </tr>
 
-    <ul>
-        <li>
-            <a href="{{ path('clocking_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('clocking_edit', { 'id': clocking.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+

@@ -30,14 +30,16 @@
                             <div class="">
                                 <label> {{ form_widget(form.isTemporary, {'attr': {'class': 'js-switch'}}) }} Temporaire</label>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                                <label class="control-label">Prénom</label>
-                                {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Foulen'}}) }}
+                            <div class="">
+                               <label>Hors ligne {{ form_widget(form.status, {'attr': {'class': 'js-switch'}}) }} Actif</label>
                             </div>
-
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                                 <label class="control-label">Nom</label>
                                 {{ form_widget(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Ben foulen'}}) }}
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                <label class="control-label">Prénom</label>
+                                {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Foulen'}}) }}
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
@@ -94,7 +96,7 @@
             <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Lieu de travail & Tarif journalier</h2>
+                        <h2>Fonction</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -106,15 +108,11 @@
                             <label class="control-label">Lieu de travail</label>
                             {{ form_widget(form.workplace, {'attr': {'class': 'form-control'}}) }}
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                            <label class="control-label">Tarifs journalier</label>
-                            {{ form_widget(form.dailyRate, {'attr': {'class': 'form-control', 'placeholder': 'Tarif journalier'}}) }}
-                        </div>
                     </div>
                 </div>
                 <div class="x_panel">
                     <div class="x_title" id="container-tome">
-                        <h2>Ajouter un contrat de travail</h2>
+                        <h2>Infos contrat de travail</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -142,6 +140,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                             <label class="control-label">Salaire</label>
                             {{ form_widget(prototype_contract.salary, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label class="control-label">Tarifs journalier</label>
+                            {{ form_widget(prototype_contract.dailyRate, {'attr': {'class': 'form-control', 'placeholder': 'Tarif journalier'}}) }}
                         </div>
                     </div>
                 </div>

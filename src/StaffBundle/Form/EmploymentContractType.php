@@ -5,7 +5,7 @@ namespace StaffBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,13 +33,23 @@ class EmploymentContractType extends AbstractType
             ))
             ->add('endDate', DateType::class, array(
                 'widget' => 'single_text',
-                'html5'  => true
+                'html5'  => true,
+                'required' => false
             ))
-            ->add('signatureDate', DateType::class,  array(
+            ->add('signatureDate', DateType::class, array(
                 'widget' => 'single_text',
-                'html5'  => true
+                'html5'  => true,
+                'required' => false
             ))
-            ->add('salary', IntegerType::class);
+            ->add('salary', MoneyType::class, array(
+                'currency' => 'TND',
+                'required' => false
+            ))
+            ->add('dailyRate', MoneyType::class, array(
+                'currency' => 'TND',
+                'required' => false
+            ))
+        ;
     }
     
     /**

@@ -35,7 +35,27 @@ class SubFamily
      * @ORM\JoinColumn(nullable=false)
      */
     private $family;
-
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="insurance", type="boolean")
+     */
+    private $insurance;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="tax", type="boolean")
+     */
+    private $tax;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="grey_card", type="boolean")
+     */
+    private $greyCard;
 
     /**
      * Get id
@@ -93,6 +113,33 @@ class SubFamily
     public function getFamily()
     {
         return $this->family;
+    }
+    
+    function getInsurance() {
+        return $this->insurance;
+    }
+
+    function getTax() {
+        return $this->tax;
+    }
+
+    function getGreyCard() {
+        return $this->greyCard;
+    }
+
+    function setInsurance($insurance) {
+        $this->insurance = $insurance;
+        return $this;
+    }
+
+    function setTax($tax) {
+        $this->tax = $tax;
+        return $this;
+    }
+
+    function setGreyCard($greyCard) {
+        $this->greyCard = $greyCard;
+        return $this;
     }
     
     public function __toString() 

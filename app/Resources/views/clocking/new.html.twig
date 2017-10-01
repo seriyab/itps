@@ -26,11 +26,12 @@
                             <th>Statut</th>
                             <th>Lieu de travail</th>
                             <th>Chantier</th>
+                            <th>Heure d'arrivée</th>
                             <th>Observation</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for clocking in form.clocking %}
+                        {% for clocking in form.clockingReports %}
                             <tr>
                                 <td>
                                     {{ form_widget(clocking.personal, {'attr': {'class': 'form-control'}}) }}
@@ -46,6 +47,9 @@
                                     {{ form_widget(clocking.constructionSite, {'attr': {'class': 'form-control'}}) }}
                                 </td>
                                 <td>
+                                    {{ form_widget(clocking.arrival_time, {'attr': {'class': 'form-control'}}) }}
+                                </td>
+                                <td>
                                     {{ form_widget(clocking.comment, {'attr': {'class': 'form-control'}}) }}
                                 </td>
                             </tr>
@@ -53,8 +57,8 @@
                         {{ form_widget(form._token) }}
                         </tbody>
                     </table>
-
-                    <input type="submit" value="Create" />
+                    
+                    <input type="submit" class="btn btn-primary pull-right" value="Enregistrer">
                 </div>
             </div>
         </div>

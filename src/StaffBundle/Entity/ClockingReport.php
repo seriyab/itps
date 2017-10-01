@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Clocking
  *
- * @ORM\Table(name="clocking")
- * @ORM\Entity(repositoryClass="StaffBundle\Repository\ClockingRepository")
+ * @ORM\Table(name="clocking_report")
+ * @ORM\Entity(repositoryClass="StaffBundle\Repository\ClockingReportRepository")
  */
-class Clocking
+class ClockingReport
 {
     /**
      * @var int
@@ -22,11 +22,19 @@ class Clocking
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Clocking", inversedBy="clockingReport", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $clocking;
+    
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="arrival_time", type="time")
      */
-    private $date;
+    private $arrivalTime;
 
     /**
      * @var string
@@ -79,30 +87,6 @@ class Clocking
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Clocking
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**
@@ -216,6 +200,24 @@ class Clocking
     public function setStatus($status)
     {
         $this->status = $status;
+        return $this;
+    }
+    
+    function getClocking() {
+        return $this->clocking;
+    }
+
+    function setClocking($clocking) {
+        $this->clocking = $clocking;
+        return $this;
+    }
+    
+    function getArrivalTime() {
+        return $this->arrivalTime;
+    }
+
+    function setArrivalTime(\DateTime $arrivalTime) {
+        $this->arrivalTime = $arrivalTime;
         return $this;
     }
 }

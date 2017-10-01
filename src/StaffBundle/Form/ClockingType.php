@@ -3,8 +3,8 @@
 namespace StaffBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,17 +16,15 @@ class ClockingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('comment')
-            ->add('personal', TextType::class , array(
-                'disabled' => true
+            ->add('date', DateType::class, array(
+                'widget' => 'single_text',
+                'html5'  => true,
+                'data'   => new \DateTime('now')
             ))
-            ->add('location')
-            ->add('constructionSite')
-            ->add('status', ChoiceType::class, array(
-                'choices' => array('Absent' => 'Absent', 'Présent' => 'Présent', 'Repot' => 'Repot', 'Déplacement' => 'Déplacement', 'Hors service' => 'Hors service'),
-                'expanded' => true,
-                'multiple' => false
-            ));
+            ->add('clockingReports', CollectionType::class, array(
+                'entry_type' => ClockingPersonalsType::class
+            ))
+        ;
     }
     
     /**

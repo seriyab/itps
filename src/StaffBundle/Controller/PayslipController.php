@@ -9,10 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Clocking controller.
+ * Payslip controller.
  *
  */
-class ClockingController extends Controller
+class PayslipController extends Controller
 {
     /**
      * Lists all clocking entities.

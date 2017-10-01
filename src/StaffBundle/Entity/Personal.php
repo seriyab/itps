@@ -103,13 +103,13 @@ class Personal
      * @ORM\Column(name="is_temporary", type="boolean")
      */
     private $isTemporary;
-
+    
     /**
      * @var int
      *
-     * @ORM\Column(name="daily_rate", type="float", nullable=true)
+     * @ORM\Column(name="status", type="boolean")
      */
-    private $dailyRate;
+    private $status;
 
     /**
      * @var string
@@ -372,24 +372,6 @@ class Personal
     }
 
     /**
-     * @return int
-     */
-    public function getDailyRate()
-    {
-        return $this->dailyRate;
-    }
-
-    /**
-     * @param int $dailyRate
-     * @return Personal
-     */
-    public function setDailyRate($dailyRate)
-    {
-        $this->dailyRate = $dailyRate;
-        return $this;
-    }
-
-    /**
      * @return Workplace
      */
     public function getWorkplace()
@@ -422,6 +404,15 @@ class Personal
     public function setFunction($function)
     {
         $this->function = $function;
+        return $this;
+    }
+    
+    function getStatus() {
+        return $this->status;
+    }
+
+    function setStatus($status) {
+        $this->status = $status;
         return $this;
     }
 }
