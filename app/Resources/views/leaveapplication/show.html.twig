@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="">
+        <a href="{{ path('leaveapplication_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i> Retour</a>
+
+        <div class="clearfix"></div>
+        <div class="separator"></div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Congé "{{ leaveApplication.personal }} le {{ leaveApplication.startAt | date('d/m/Y') }}"</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>Personnel</th>
+                                <td>{{ leaveApplication.personal }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date début</th>
+                                <td>{{ leaveApplication.startAt | date('d/m/Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date fin</th>
+                                <td>{{ leaveApplication.endAt | date('d/m/Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Etat</th>
+                                <td>{{ leaveApplication.status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Approuvé par</th>
+                                <td>{{leaveApplication.approvedBy }} </td>
+                            </tr>
+                            <tr>
+                                <th>Observation</th>
+                                <td>{{leaveApplication.comment}}</td>
+                            <tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a href="{{ path('leaveapplication_edit', { 'id': leaveApplication.id }) }}" class="btn btn-sm btn-warning pull-left" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Modifier"><i class="fa fa-edit"></i></a>
+                                    {{ form_start(delete_form, {'attr': {'class':'pull-right'}}) }}
+                                    <button type="submit" class="btn btn-sm btn-danger pull-right" data-placement="top" data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash"></i></button>
+                                    {{ form_end(delete_form) }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

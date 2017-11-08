@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div>
+    <a href="{{ path('leaveapplication_index') }}" class="btn btn-success left"><i class="fa fa-chevron-circle-left"></i> Retour</a>
+
+    <div class="clearfix"></div>
+    <div class="separator"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Ajout congé</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left', 'data-parsley-validate':''}}) }}
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Personnel <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.personal, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Date début <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.startAt, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Date fin <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.endAt, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Etat
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.status, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Approuvé par
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.approvedBy, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Observation
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {{ form_widget(form.comment, {'attr': {'class': 'form-control col-md-7 col-xs-12'}} ) }}
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <a href="{{ path('bank_index') }}" class="btn btn-default" type="button">Annuler</a>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

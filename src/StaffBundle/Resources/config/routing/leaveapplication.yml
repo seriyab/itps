@@ -1,0 +1,24 @@
+leaveapplication_index:
+    path:     /
+    defaults: { _controller: "StaffBundle:LeaveApplication:index" }
+    methods:  GET
+
+leaveapplication_show:
+    path:     /{id}/show
+    defaults: { _controller: "StaffBundle:LeaveApplication:show" }
+    methods:  GET
+
+leaveapplication_new:
+    path:     /new
+    defaults: { _controller: "StaffBundle:LeaveApplication:new" }
+    methods:  [GET, POST]
+
+leaveapplication_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "StaffBundle:LeaveApplication:edit" }
+    methods:  [GET, POST]
+
+leaveapplication_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "StaffBundle:LeaveApplication:delete" }
+    methods:  DELETE

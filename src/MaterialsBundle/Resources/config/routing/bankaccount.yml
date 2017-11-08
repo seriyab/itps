@@ -1,0 +1,24 @@
+bankaccount_index:
+    path:     /
+    defaults: { _controller: "MaterialsBundle:BankAccount:index" }
+    methods:  GET
+
+bankaccount_show:
+    path:     /{id}/show
+    defaults: { _controller: "MaterialsBundle:BankAccount:show" }
+    methods:  GET
+
+bankaccount_new:
+    path:     /new
+    defaults: { _controller: "MaterialsBundle:BankAccount:new" }
+    methods:  [GET, POST]
+
+bankaccount_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MaterialsBundle:BankAccount:edit" }
+    methods:  [GET, POST]
+
+bankaccount_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MaterialsBundle:BankAccount:delete" }
+    methods:  DELETE
